@@ -1,26 +1,421 @@
 @import "tailwindcss";
+/* ============================================
+   TAILWIND v4 THEME (replaces tailwind.config.ts)
+   ============================================ */
+@theme {
+  /* Colors */
+  --color-cyber-bg: #020812;
+  --color-cyber-surface: #040e1f;
+  --color-cyber-border: #0d2240;
+  --color-cyber-cyan: #00f5ff;
+  --color-cyber-magenta: #ff00aa;
+  --color-cyber-green: #39ff14;
+  --color-cyber-yellow: #ffe100;
+  --color-cyber-text: #c8e6ff;
+  --color-cyber-muted: #4a7fa5;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  /* Fonts */
+  --font-family-display: "Orbitron", monospace;
+  --font-family-mono: "JetBrains Mono", "Fira Code", monospace;
+  --font-family-body: "Exo 2", sans-serif;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Box shadows */
+  --shadow-neon-cyan: 0 0 8px #00f5ff, 0 0 20px #00f5ff40, 0 0 40px #00f5ff20;
+  --shadow-neon-magenta:
+    0 0 8px #ff00aa, 0 0 20px #ff00aa40, 0 0 40px #ff00aa20;
+  --shadow-neon-green: 0 0 8px #39ff14, 0 0 20px #39ff1440;
+  --shadow-card: 0 0 0 1px #0d2240, 0 8px 32px #00000080;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Animations */
+  --animate-glow-pulse: glowPulse 3s ease-in-out infinite;
+  --animate-flicker: flicker 4s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-type-cursor: typeCursor 1s step-end infinite;
+
+  @keyframes glowPulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+  }
+  @keyframes flicker {
+    0%,
+    95%,
+    100% {
+      opacity: 1;
+    }
+    96% {
+      opacity: 0.4;
+    }
+    97% {
+      opacity: 1;
+    }
+    98% {
+      opacity: 0.3;
+    }
+    99% {
+      opacity: 1;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+  @keyframes typeCursor {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
   }
 }
 
+/* ============================================
+   CSS CUSTOM PROPERTIES (kept for vanilla CSS usage)
+   ============================================ */
+:root {
+  --bg: #020812;
+  --surface: #040e1f;
+  --border: #0d2240;
+  --cyan: #00f5ff;
+  --magenta: #ff00aa;
+  --green: #39ff14;
+  --yellow: #ffe100;
+  --text: #c8e6ff;
+  --muted: #4a7fa5;
+
+  --glow-cyan: 0 0 8px #00f5ff, 0 0 20px #00f5ff40, 0 0 40px #00f5ff20;
+  --glow-magenta: 0 0 8px #ff00aa, 0 0 20px #ff00aa40, 0 0 40px #ff00aa20;
+  --glow-green: 0 0 8px #39ff14, 0 0 20px #39ff1440;
+}
+
+/* ============================================
+   BASE RESET & BODY
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Exo 2", sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--cyan);
+  border-radius: 3px;
+  box-shadow: var(--glow-cyan);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00d4e8;
+}
+
+::selection {
+  background: rgba(0, 245, 255, 0.25);
+  color: #fff;
+}
+
+/* ============================================
+   GLOBAL SCAN-LINE OVERLAY
+   ============================================ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ============================================
+   ANIMATION HELPERS
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes glitchText {
+  0%,
+  90%,
+  100% {
+    clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    transform: translateX(0);
+  }
+  91% {
+    clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%);
+    transform: translateX(-2px);
+  }
+  93% {
+    clip-path: polygon(0 30%, 100% 30%, 100% 40%, 0 40%);
+    transform: translateX(2px);
+  }
+  95% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 65%, 0 65%);
+    transform: translateX(-1px);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease-out both;
+}
+.animate-fade-in-left {
+  animation: fadeInLeft 0.7s ease-out both;
+}
+.animate-fade-in-right {
+  animation: fadeInRight 0.7s ease-out both;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
+.delay-300 {
+  animation-delay: 0.3s;
+}
+.delay-400 {
+  animation-delay: 0.4s;
+}
+.delay-500 {
+  animation-delay: 0.5s;
+}
+.delay-600 {
+  animation-delay: 0.6s;
+}
+.delay-700 {
+  animation-delay: 0.7s;
+}
+
+/* ============================================
+   UTILITY CLASSES (no @apply needed in v4)
+   ============================================ */
+.text-glow-cyan {
+  text-shadow: var(--glow-cyan);
+}
+.text-glow-magenta {
+  text-shadow: var(--glow-magenta);
+}
+.text-glow-green {
+  text-shadow: var(--glow-green);
+}
+.text-glow-yellow {
+  text-shadow:
+    0 0 8px #ffe100,
+    0 0 20px #ffe10040;
+}
+
+.border-glow-cyan {
+  box-shadow: var(--glow-cyan);
+}
+.border-glow-magenta {
+  box-shadow: var(--glow-magenta);
+}
+.border-glow-green {
+  box-shadow: var(--glow-green);
+}
+
+.bg-grid-cyber {
+  background-image:
+    linear-gradient(rgba(0, 245, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 245, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.clip-hex {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+/* ============================================
+   COMPONENT CLASSES
+   In Tailwind v4, write plain CSS instead of @apply
+   ============================================ */
+.section-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: #00f5ff;
+  text-transform: uppercase;
+  text-shadow: var(--glow-cyan);
+}
+
+.section-title {
+  font-family: "Orbitron", monospace;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: white;
+}
+
+.btn-neon {
+  position: relative;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.75rem;
+  border: 1px solid #00f5ff;
+  color: #00f5ff;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.btn-neon:hover {
+  background: #00f5ff;
+  color: #020812;
+  box-shadow:
+    0 0 8px #00f5ff,
+    0 0 20px #00f5ff40,
+    0 0 40px #00f5ff20;
+}
+
+.btn-neon-magenta {
+  position: relative;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.75rem;
+  border: 1px solid #ff00aa;
+  color: #ff00aa;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.btn-neon-magenta:hover {
+  background: #ff00aa;
+  color: #020812;
+  box-shadow:
+    0 0 8px #ff00aa,
+    0 0 20px #ff00aa40,
+    0 0 40px #ff00aa20;
+}
+
+.card-cyber {
+  background: #040e1f;
+  border: 1px solid #0d2240;
+  border-radius: 0;
+  position: relative;
+  transition: all 0.3s;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 16px) 0,
+    100% 16px,
+    100% 100%,
+    16px 100%,
+    0 calc(100% - 16px)
+  );
+}
+.card-cyber::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.04), transparent);
+  pointer-events: none;
+}
+.card-cyber:hover::before {
+  opacity: 1;
+}
+
+.skill-bar-track {
+  height: 4px;
+  width: 100%;
+  background: #0d2240;
+  overflow: hidden;
+  position: relative;
+}
+.skill-bar-fill {
+  height: 100%;
+  background: #00f5ff;
+  transition: width 1s ease-out;
+  position: relative;
+  box-shadow: var(--glow-cyan);
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background: #00f5ff;
+  border: 2px solid #00f5ff;
+  border-radius: 50%;
+  position: relative;
+  z-index: 10;
+  box-shadow: var(--glow-cyan);
 }
