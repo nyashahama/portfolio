@@ -12,8 +12,8 @@ interface Options {
  * Returns true once the referenced element enters the viewport.
  * By default, stays true after the first intersection (once = true).
  */
-export function useInView(
-  ref: RefObject<Element>,
+export function useInView<T extends Element>(
+  ref: RefObject<T | null>,
   { threshold = 0.1, once = true }: Options = {},
 ): boolean {
   const [inView, setInView] = useState(false);

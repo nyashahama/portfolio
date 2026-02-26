@@ -68,7 +68,7 @@ export default function AboutSection() {
                 <p className="font-mono text-xs pl-4">
                   <span className="text-cyber-yellow">passion</span>
                   <span className="text-white">: </span>
-                  <span className="text-cyber-green">"building"</span>
+                  <span className="text-cyber-green">&quot;building&quot;</span>
                   <span className="text-white">,</span>
                 </p>
                 <p className="font-mono text-xs text-white">&#125;</p>

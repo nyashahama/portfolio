@@ -205,8 +205,50 @@ export const PORTFOLIO = {
     },
   ],
 
-  // ── Blog Posts (Optional – can remove if unused) ──────────
-  posts: [],
+  // ── Blog Posts ────────────────────────────────────────────
+  posts: [
+    {
+      slug: "building-vector-databases",
+      title: "Building a Production Vector Database from Scratch",
+      date: "Jan 12, 2025",
+      readTime: "12 min read",
+      tags: ["Go", "Databases", "AI"],
+      excerpt:
+        "Deep dive into HNSW indexing, memory-mapped files, and the engineering decisions behind NeuralDB. From prototype to 1M+ vector production system.",
+      accent: "cyan",
+    },
+    {
+      slug: "crdt-real-time-collab",
+      title: "CRDTs in the Wild: Lessons from Building Synapse",
+      date: "Nov 8, 2024",
+      readTime: "9 min read",
+      tags: ["Distributed Systems", "Node.js", "Architecture"],
+      excerpt:
+        "How we implemented conflict-free replicated data types to power real-time collaboration for 50k concurrent users, and the edge cases nobody warns you about.",
+      accent: "magenta",
+    },
+    {
+      slug: "typescript-performance",
+      title:
+        "TypeScript Compiler Performance: 10 Techniques That Actually Work",
+      date: "Sep 24, 2024",
+      readTime: "7 min read",
+      tags: ["TypeScript", "Performance", "DX"],
+      excerpt:
+        "After spending weeks profiling and optimizing a 300k-line TypeScript codebase, here are the changes that delivered the biggest wins.",
+      accent: "green",
+    },
+    {
+      slug: "k8s-cost-optimization",
+      title: "Kubernetes Cost Optimization: From $40k to $12k/Month",
+      date: "Jul 3, 2024",
+      readTime: "10 min read",
+      tags: ["Kubernetes", "AWS", "Infrastructure"],
+      excerpt:
+        "A practical walkthrough of the cluster audit, right-sizing, spot instance migration, and autoscaling policies that cut our AWS bill by 70%.",
+      accent: "yellow",
+    },
+  ],
 };
 
 // Type exports
