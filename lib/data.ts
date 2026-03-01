@@ -14,7 +14,7 @@ export const PORTFOLIO = {
   github: "https://github.com/nyashahama",
   linkedin: "https://www.linkedin.com/in/nyasha-hama-5b1312229",
   twitter: "https://x.com/cCraftsman_",
-  resume: "/NyashaResume.pdf",
+  resume: "./nyasha_hama_cv.pdf",
 
   // ── Hero Terminal Lines ────────────────────────────────────
   terminalLines: [
