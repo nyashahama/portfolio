@@ -57,7 +57,7 @@ export const PORTFOLIO = {
       accent: "cyan",
       github:
         "https://github.com/nyashahama/healthcare-access-connector-backend",
-      live: null,
+      live: "https://healthcare-access-connector-web.vercel.app/",
       featured: true,
     },
     {
@@ -69,11 +69,35 @@ export const PORTFOLIO = {
       tech: ["TypeScript", "Go", "Postgres"],
       accent: "green",
       github: "https://github.com/nyashahama/asymmetric-risk-mapper",
-      live: null,
+      live: "https://asymmetric-risk-mapper.vercel.app/",
       featured: true,
     },
     {
       id: "03",
+      name: "Burnout Predictor",
+      tagline: "Predict burnout before it happens",
+      description:
+        "Overload is a burnout predictor. It checks your sleep, calendar and work patterns. This helps give you a 14-day warning if you're about to burn out. The Overload tool was built using Next.js and TypeScript. ",
+      tech: ["Next js", "TypeScript", "Go", "Postgres"],
+      accent: "magenta",
+      github: "https://github.com/nyashahama/burnout-predictor.git",
+      live: "https://burnout-predictor-ten.vercel.app/",
+      featured: true,
+    },
+    {
+      id: "04",
+      name: "AI Life CFO",
+      tagline: "AI-powered cash flow forecasting for high earners",
+      description:
+        "Predictive cash flow intelligence for high-earning professionals. A full-stack Next.js pitch deck and marketing landing page with custom cursor, scroll-snap slides, and elegant dark-mode design.",
+      tech: ["Next.js", "TypeScript", "Tailwind"],
+      accent: "green",
+      github: "https://github.com/nyashahama/AI-Life-CFO.git",
+      live: "https://ai-life-cfo.vercel.app",
+      featured: true,
+    },
+    {
+      id: "05",
       name: "Music Awards System",
       tagline: "Scalable full-stack awards management platform",
       description:
@@ -85,7 +109,7 @@ export const PORTFOLIO = {
       featured: true,
     },
     {
-      id: "04",
+      id: "06",
       name: "Go Scalable Auth Boilerplate",
       tagline: "Production-ready authentication architecture",
       description:
@@ -98,7 +122,7 @@ export const PORTFOLIO = {
     },
 
     {
-      id: "05",
+      id: "07",
       name: "E-commerce Search Optimization",
       tagline: "Optimizing search with advanced data structures",
       description:
@@ -111,7 +135,7 @@ export const PORTFOLIO = {
       featured: false,
     },
     {
-      id: "06",
+      id: "08",
       name: "Wedding Planning System",
       tagline: "Collaborative full-stack university project",
       description:
@@ -168,8 +192,6 @@ export const PORTFOLIO = {
       "Tailwind",
       "GraphQL",
       "Java",
-      "React",
-      "TypeScript",
       "PostgreSQL",
       "Redis",
       "NATS",
