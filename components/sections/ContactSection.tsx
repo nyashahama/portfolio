@@ -18,14 +18,21 @@ export default function ContactSection() {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   };
 
-  // Demo submit handler — wire up to your API/Formspree/Resend
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState("sending");
-    // Simulate network delay
-    await new Promise((r) => setTimeout(r, 1500));
-    setFormState("success");
-    setForm({ name: "", email: "", message: "" });
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Failed to send");
+      setFormState("success");
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      setFormState("error");
+    }
   };
 
   const socials = [
@@ -186,6 +193,12 @@ export default function ContactSection() {
                                focus:border-cyber-cyan focus:shadow-neon-cyan transition-all duration-300"
                   />
                 </div>
+
+                {formState === "error" && (
+                  <p className="font-mono text-xs text-red-400 border border-red-400/30 bg-red-400/5 px-4 py-3">
+                    Something went wrong. Please try again or email me directly.
+                  </p>
+                )}
 
                 <button
                   type="submit"
