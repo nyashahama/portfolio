@@ -49,6 +49,18 @@ export const PORTFOLIO = {
   projects: [
     {
       id: "01",
+      name: "Burnout Predictor",
+      tagline: "Predict burnout before it happens",
+      description:
+        "Overload is a burnout predictor. It checks your sleep, calendar and work patterns. This helps give you a 14-day warning if you're about to burn out. The Overload tool was built using Next.js and TypeScript. ",
+      tech: ["Next js", "TypeScript", "Go", "Postgres"],
+      accent: "magenta",
+      github: "https://github.com/nyashahama/burnout-predictor.git",
+      live: "https://burnout-predictor-ten.vercel.app/",
+      featured: true,
+    },
+    {
+      id: "02",
       name: "Healthcare Access Connector",
       tagline: "Connecting underserved communities to clinics & telemedicine",
       description:
@@ -61,66 +73,54 @@ export const PORTFOLIO = {
       featured: true,
     },
     {
-      id: "02",
+      id: "03",
+      name: "AgencyForge",
+      tagline: "AI agents generating full marketing campaigns",
+      description:
+        "Upload a brief and AI generates campaigns, ad copy, design direction, media plans, and legal docs.",
+      tech: ["Next.js", "TypeScript", "Go", "Postgres"],
+      accent: "yellow",
+      github: "https://github.com/nyashahama/AgencyForge",
+      live: "https://agency-forge.vercel.app",
+      featured: true,
+    },
+    {
+      id: "04",
+      name: "StrataHQ",
+      tagline: "Property and community management platform",
+      description:
+        "Manages agents, trustees, residents, levy collections, maintenance, and AGMs.",
+      tech: ["Next.js", "TypeScript", "Go", "Postgres"],
+      accent: "green",
+      github: "https://github.com/nyashahama/StrataHQ",
+      live: "https://strata-hq-blue.vercel.app",
+      featured: true,
+    },
+    {
+      id: "05",
       name: "Asymmetric Risk Mapper",
       tagline: "Identifying risks that can kill your business",
       description:
         "Tool that analyzes asymmetric business risks — highlighting high-impact threats while filtering out low-leverage noise. Built with TypeScript.",
       tech: ["TypeScript", "Go", "Postgres"],
-      accent: "green",
+      accent: "magenta",
       github: "https://github.com/nyashahama/asymmetric-risk-mapper",
       live: "https://asymmetric-risk-mapper.vercel.app/",
       featured: true,
     },
-    {
-      id: "03",
-      name: "Burnout Predictor",
-      tagline: "Predict burnout before it happens",
-      description:
-        "Overload is a burnout predictor. It checks your sleep, calendar and work patterns. This helps give you a 14-day warning if you're about to burn out. The Overload tool was built using Next.js and TypeScript. ",
-      tech: ["Next js", "TypeScript", "Go", "Postgres"],
-      accent: "magenta",
-      github: "https://github.com/nyashahama/burnout-predictor.git",
-      live: "https://burnout-predictor-ten.vercel.app/",
-      featured: true,
-    },
-    {
-      id: "04",
-      name: "AI Life CFO",
-      tagline: "AI-powered cash flow forecasting for high earners",
-      description:
-        "Predictive cash flow intelligence for high-earning professionals. A full-stack Next.js pitch deck and marketing landing page with custom cursor, scroll-snap slides, and elegant dark-mode design.",
-      tech: ["Next.js", "TypeScript", "Tailwind"],
-      accent: "green",
-      github: "https://github.com/nyashahama/AI-Life-CFO.git",
-      live: "https://ai-life-cfo.vercel.app",
-      featured: true,
-    },
-    {
-      id: "05",
-      name: "Music Awards System",
-      tagline: "Scalable full-stack awards management platform",
-      description:
-        "Built a full-stack music awards system handling nominations, voting, analytics dashboards, and role-based authentication. Backend developed in Go (Gin, GORM, PostgreSQL) with Dockerized microservices and CI/CD via GitHub Actions.",
-      tech: ["Go", "Gin", "PostgreSQL", "React", "Angular", "Docker"],
-      accent: "cyan",
-      github: "https://github.com/nyashahama/music_awards_server",
-      live: null,
-      featured: true,
-    },
+
     {
       id: "06",
-      name: "Go Scalable Auth Boilerplate",
-      tagline: "Production-ready authentication architecture",
+      name: "FormFlow AI",
+      tagline: "Automating government forms",
       description:
-        "High-performance Go backend template using pgx + sqlc (no ORM), Redis caching, NATS messaging, and Prometheus metrics. Designed for scalability and real-world production use.",
-      tech: ["Go", "PostgreSQL", "Redis", "NATS", "Prometheus"],
-      accent: "magenta",
-      github: "https://github.com/nyashahama/go-scalable-auth-boilerplate",
-      live: null,
+        "Reads forms, pulls user data, fills and submits them with audit trails.",
+      tech: ["Next.js", "TypeScript", "Go", "Postgres"],
+      accent: "cyan",
+      github: "https://github.com/nyashahama/FormFlow-AI",
+      live: "https://form-flow-ai-pink.vercel.app",
       featured: true,
     },
-
     {
       id: "07",
       name: "E-commerce Search Optimization",
@@ -145,6 +145,30 @@ export const PORTFOLIO = {
       github: "https://github.com/nyashahama/Team-34-Project",
       live: null,
       featured: false,
+    },
+    {
+      id: "09",
+      name: "AI Life CFO",
+      tagline: "AI-powered cash flow forecasting for high earners",
+      description:
+        "Predictive cash flow intelligence for high-earning professionals. A full-stack Next.js pitch deck and marketing landing page with custom cursor, scroll-snap slides, and elegant dark-mode design.",
+      tech: ["Next.js", "TypeScript", "Tailwind"],
+      accent: "green",
+      github: "https://github.com/nyashahama/AI-Life-CFO.git",
+      live: "https://ai-life-cfo.vercel.app",
+      featured: true,
+    },
+    {
+      id: "10",
+      name: "Music Awards System",
+      tagline: "Scalable full-stack awards management platform",
+      description:
+        "Built a full-stack music awards system handling nominations, voting, analytics dashboards, and role-based authentication. Backend developed in Go (Gin, GORM, PostgreSQL) with Dockerized microservices and CI/CD via GitHub Actions.",
+      tech: ["Go", "Gin", "PostgreSQL", "React", "Angular", "Docker"],
+      accent: "cyan",
+      github: "https://github.com/nyashahama/music_awards_server",
+      live: null,
+      featured: true,
     },
   ],
 
