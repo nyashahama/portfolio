@@ -128,6 +128,20 @@ function ProjectCard({
         {project.description}
       </p>
 
+      {project.highlights?.length ? (
+        <ul className="space-y-2 mb-5">
+          {project.highlights.slice(0, featured ? 3 : 2).map((highlight) => (
+            <li
+              key={highlight}
+              className="flex items-start gap-2 text-cyber-muted text-xs leading-relaxed"
+            >
+              <span className={`mt-1 h-1.5 w-1.5 rounded-full ${accent.bg} border ${accent.border} shrink-0`} />
+              <span>{highlight}</span>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+
       {/* Tech tags */}
       <div className="flex flex-wrap gap-2">
         {project.tech.map((t) => (
