@@ -182,11 +182,11 @@ export default function ProjectsSection() {
         <div
           className={`mb-16 transition-all duration-700 ${headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <p className="section-label mb-3">02 / Projects</p>
+          <p className="section-label mb-3">02 / Selected Work</p>
           <div className="flex flex-col sm:flex-row sm:items-end gap-4 justify-between">
             <h2 className="section-title">
-              Things I&apos;ve{" "}
-              <span className="text-cyber-cyan text-glow-cyan">Built</span>
+              Systems &{" "}
+              <span className="text-cyber-cyan text-glow-cyan">Products</span>
             </h2>
             <a
               href={PORTFOLIO.github}
@@ -200,7 +200,7 @@ export default function ProjectsSection() {
         </div>
 
         {/* Featured grid */}
-        <div className="grid lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
           {featured.map((project, i) => (
             <ProjectCard
               key={project.id}
@@ -215,7 +215,7 @@ export default function ProjectsSection() {
         <div className="flex items-center gap-4 mb-12">
           <div className="h-px flex-1 bg-cyber-border" />
           <span className="font-mono text-xs text-cyber-muted tracking-widest">
-            MORE PROJECTS
+            ADDITIONAL WORK
           </span>
           <div className="h-px flex-1 bg-cyber-border" />
         </div>
