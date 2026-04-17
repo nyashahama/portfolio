@@ -75,7 +75,7 @@ function BlogCard({ post, index }: { post: Post; index: number }) {
         className="flex items-center gap-2 font-mono text-xs text-cyber-muted
                       group-hover:text-cyber-cyan transition-colors duration-300"
       >
-        <span>Read article</span>
+        <span>Area of focus</span>
         <svg
           width="12"
           height="12"
@@ -101,7 +101,7 @@ export default function BlogSection() {
 
   return (
     <section
-      id="blog"
+      id="notes"
       ref={ref}
       className="relative py-32 overflow-hidden bg-cyber-surface/20"
     >
@@ -113,18 +113,15 @@ export default function BlogSection() {
         <div
           className={`mb-16 transition-all duration-700 ${headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <p className="section-label mb-3">05 / Writing</p>
+          <p className="section-label mb-3">05 / Notes</p>
           <div className="flex flex-col sm:flex-row sm:items-end gap-4 justify-between">
             <h2 className="section-title">
-              Latest{" "}
-              <span className="text-cyber-cyan text-glow-cyan">Posts</span>
+              Systems{" "}
+              <span className="text-cyber-cyan text-glow-cyan">Interests</span>
             </h2>
-            <a
-              href="#"
-              className="font-mono text-xs text-cyber-muted hover:text-cyber-cyan transition-colors duration-200 shrink-0"
-            >
-              All articles →
-            </a>
+            <span className="font-mono text-xs text-cyber-muted shrink-0">
+              Current areas of focus
+            </span>
           </div>
         </div>
 

@@ -79,9 +79,10 @@ export default function SkillsSection() {
         <div
           className={`mb-16 transition-all duration-700 ${headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <p className="section-label mb-3">03 / Skills</p>
+          <p className="section-label mb-3">03 / Core Stack</p>
           <h2 className="section-title">
-            Tech <span className="text-cyber-cyan text-glow-cyan">Arsenal</span>
+            Stack &{" "}
+            <span className="text-cyber-cyan text-glow-cyan">Foundations</span>
           </h2>
         </div>
 

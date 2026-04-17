@@ -274,10 +274,10 @@ export default function HeroSection() {
             <p className="font-display text-xl lg:text-2xl text-white tracking-wide">
               <Typewriter
                 words={[
-                  "Software Engineer",
-                  "Cloud Architect",
-                  "OSS Contributor",
-                  "System Designer",
+                  "Backend & Platform Engineer",
+                  "Go / Rust Builder",
+                  "TypeScript + Next.js Engineer",
+                  "Systems-Focused Product Developer",
                 ]}
               />
             </p>

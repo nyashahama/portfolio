@@ -156,8 +156,8 @@ export default function ExperienceSection() {
         >
           <p className="section-label mb-3">04 / Experience</p>
           <h2 className="section-title">
-            Career{" "}
-            <span className="text-cyber-cyan text-glow-cyan">Timeline</span>
+            Engineering{" "}
+            <span className="text-cyber-cyan text-glow-cyan">Work</span>
           </h2>
         </div>
 
