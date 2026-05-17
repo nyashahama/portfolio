@@ -275,7 +275,7 @@ export default function ContactSection() {
                     className="card-cyber p-4 border-cyber-border hover:border-cyber-cyan/50
                                hover:shadow-neon-cyan flex items-center gap-3 group transition-all duration-300"
                   >
-                    <span className="text-cyber-muted group-hover:text-cyber-cyan transition-colors duration-200">
+                    <span className="icon-button h-9 w-9 border border-cyber-border bg-cyber-cyan/5 text-cyber-cyan group-hover:bg-cyber-cyan group-hover:text-cyber-bg group-hover:border-cyber-cyan transition-all duration-200">
                       {social.icon}
                     </span>
                     <span className="font-mono text-xs text-cyber-muted group-hover:text-cyber-text transition-colors duration-200">

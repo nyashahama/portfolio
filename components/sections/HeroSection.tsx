@@ -214,8 +214,8 @@ const SocialLink = ({
     target="_blank"
     rel="noopener noreferrer"
     aria-label={label}
-    className="w-10 h-10 border border-cyber-border flex items-center justify-center
-               text-cyber-muted hover:text-cyber-cyan hover:border-cyber-cyan
+    className="icon-button w-10 h-10 border border-cyber-border flex items-center justify-center
+               text-cyber-cyan bg-cyber-cyan/5 hover:text-cyber-bg hover:bg-cyber-cyan hover:border-cyber-cyan
                hover:shadow-neon-cyan transition-all duration-300"
   >
     {children}
@@ -226,7 +226,8 @@ const SocialLink = ({
 export default function HeroSection() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    setMounted(true);
+    const frame = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(frame);
   }, []);
 
   return (

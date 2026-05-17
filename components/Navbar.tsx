@@ -126,6 +126,7 @@ export default function Navbar() {
           >
             <span>Resume</span>
             <svg
+              className="shrink-0"
               width="12"
               height="12"
               viewBox="0 0 24 24"
@@ -182,9 +183,21 @@ export default function Navbar() {
               className="btn-neon"
               target="_blank"
               rel="noopener noreferrer"
+          >
+            Resume
+            <svg
+              className="shrink-0"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden="true"
             >
-              Resume
-            </a>
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+            </svg>
+          </a>
           </li>
         </ul>
       </div>

@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Nyasha Hama | Software Engineer",
   description:
     "Full-stack software engineer specializing in scalable systems, cloud infrastructure, and modern web applications.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({

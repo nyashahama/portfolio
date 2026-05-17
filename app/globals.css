@@ -291,6 +291,28 @@ body::before {
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #00f5ff;
+  line-height: 1;
+}
+
+.icon-button svg {
+  display: block;
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  color: currentColor;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.icon-button svg[fill="none"] {
+  fill: none;
+}
+
 /* ============================================
    COMPONENT CLASSES
    In Tailwind v4, write plain CSS instead of @apply

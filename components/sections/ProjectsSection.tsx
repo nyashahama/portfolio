@@ -73,7 +73,7 @@ function ProjectCard({
               href={project.live}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-cyber-muted hover:text-cyber-cyan transition-colors duration-200"
+              className="icon-button h-8 w-8 border border-cyber-border bg-cyber-cyan/5 text-cyber-cyan hover:bg-cyber-cyan hover:text-cyber-bg hover:border-cyber-cyan hover:shadow-neon-cyan transition-all duration-200"
               aria-label="View live demo"
             >
               <svg
@@ -93,7 +93,7 @@ function ProjectCard({
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-cyber-muted hover:text-cyber-cyan transition-colors duration-200"
+              className="icon-button h-8 w-8 border border-cyber-border bg-cyber-cyan/5 text-cyber-cyan hover:bg-cyber-cyan hover:text-cyber-bg hover:border-cyber-cyan hover:shadow-neon-cyan transition-all duration-200"
               aria-label="View source"
             >
               <svg
