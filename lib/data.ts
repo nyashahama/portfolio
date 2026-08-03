@@ -6,10 +6,11 @@
 export const PORTFOLIO = {
   // ── Personal Info ──────────────────────────────────────────
   name: "Nyasha Hama",
-  title: "Backend & Platform Engineer | Go, Rust, TypeScript, Next.js",
+  title:
+    "Backend & Platform Engineer | Go, TypeScript, Rust | Healthcare Ops, Data Systems & Upstream OSS",
   tagline:
-    "Building production backend systems, secure runtimes, and modern product surfaces",
-  location: "Pretoria, South Africa",
+    "Building public, working systems in Go, TypeScript, and Rust across healthcare ops, data systems, and upstream OSS",
+  location: "Cape Town, South Africa",
   email: "nyashaahama@gmail.com",
   github: "https://github.com/nyashahama",
   linkedin: "https://www.linkedin.com/in/nyasha-hama-5b1312229",
@@ -33,8 +34,8 @@ export const PORTFOLIO = {
   // ── About ─────────────────────────────────────────────────
   about: {
     bio: [
-      "I build backend and platform systems with Go, Rust, TypeScript, and Next.js across healthcare, property management, workflow automation, and developer tooling.",
-      "My work centers on APIs, authentication, PostgreSQL data modeling, Redis caching, observability, and Dockerized development environments that feel production-ready early.",
+      "I build backend and platform systems with Go, TypeScript, Rust, PostgreSQL, and Redis, with emphasis on healthcare operations, property platforms, data workflows, auth/RBAC, observability, and release gates.",
+      "Recent evidence includes merged upstream Turso database-engine fixes, a merged CrossHair Python/C tracer contribution, a live clinic-operations platform for South Africa's public healthcare network, and a live sectional-title property platform with real workflow depth.",
       "I still bring a broader engineering foundation from Java, C++, and C#, including early backend and web work with ASP.NET, but my current focus is firmly on modern backend and product delivery.",
       "I am especially interested in distributed systems, secure execution, database internals, and the engineering details that make software reliable under real usage.",
     ],
@@ -42,7 +43,7 @@ export const PORTFOLIO = {
       { label: "Degree", value: "BSc Computer Science" },
       { label: "Core Stack", value: "Go · Rust · TS" },
       { label: "Frontend", value: "TypeScript · Next.js" },
-      { label: "DSA Practice", value: "200+ in C++" },
+      { label: "Upstream OSS", value: "Merged in Turso + CrossHair" },
     ],
   },
 
@@ -50,14 +51,29 @@ export const PORTFOLIO = {
   projects: [
     {
       id: "01",
-      name: "StrataHQ",
-      tagline: "Property operations software for sectional-title schemes",
+      name: "ClinicPulse",
+      tagline: "Clinic-operations platform for SA's public healthcare network",
       description:
-        "StrataHQ is property management software for South African sectional-title schemes, covering levy operations, maintenance workflows, AGM administration, communications, and document access across agent, trustee, and resident workflows.",
+        "A live TypeScript and Go clinic-operations platform for South Africa's public primary healthcare network, covering facility status, referral routing, field reporting, and district operational intelligence across 3,500+ facilities.",
       highlights: [
-        "Built a monorepo that pairs a Next.js frontend with a Go REST API for a workflow-heavy multi-role product.",
-        "Designed backend domains for auth, scheme management, levy operations, maintenance, and billing using PostgreSQL, pgx, sqlc, and goose migrations.",
-        "Added Redis-backed caching, JWT authentication, Stripe payment flows, email delivery, and deployment paths for Vercel and Render.",
+        "Built role-based workflows for admin, district, facility, field, partner, and public users, with PostgreSQL-backed API paths and product surfaces for operational decision-making.",
+        "Added release gates, auth/security hardening, pilot data integrity, partner workflows, E2E coverage, smoke/load scripts, and observability primitives including request correlation, metrics, and runbooks.",
+      ],
+      tech: ["TypeScript", "Go", "PostgreSQL", "Auth/RBAC", "Observability"],
+      accent: "cyan",
+      github: "https://github.com/nyashahama/clinic-pulse",
+      live: "https://clinic-pulse-five.vercel.app",
+      featured: true,
+    },
+    {
+      id: "02",
+      name: "StrataHQ",
+      tagline: "Sectional-title property operations for agents, trustees & residents",
+      description:
+        "A live Next.js and Go platform for South African sectional-title property operations, serving agents, trustees, and residents across scheme management workflows with real workflow depth.",
+      highlights: [
+        "Built scheme-scoped levy operations, maintenance workflows, resident/trustee communications, AGM administration, document access, audit logs, open API access, and predictive levy analytics.",
+        "Modeled production-style backend paths with PostgreSQL, pgx, sqlc, goose migrations, Redis, auth/RBAC, tests/CI, and deployment-ready project structure.",
       ],
       tech: ["Next.js", "TypeScript", "Go", "PostgreSQL", "Redis"],
       accent: "green",
@@ -66,17 +82,16 @@ export const PORTFOLIO = {
       featured: true,
     },
     {
-      id: "02",
+      id: "03",
       name: "Healthcare Access Connector",
-      tagline: "Backend infrastructure for patient-provider access",
+      tagline: "Go healthcare backend for patient-provider access",
       description:
-        "A healthcare access platform focused on scheduling, discovery, notifications, and role-aware workflows, with a backend architecture shaped around secure records handling, observability, and operational readiness.",
+        "A Go healthcare access backend connecting patients and providers through scheduling, search, notifications, telemedicine support, and role-aware workflows, shaped around HIPAA/POPIA-aligned access design.",
       highlights: [
-        "Built a Go API with JWT auth, patient and provider workflows, appointment scheduling, health probes, metrics, and structured validation.",
-        "Added Redis caching, NATS-based async messaging, rate limiting, and Prometheus instrumentation to harden the backend beyond CRUD.",
-        "Modeled the platform around healthcare constraints and secure workflow design instead of generic marketplace behavior.",
+        "Designed patient, provider, appointment, staff invitation, and notification flows with PostgreSQL-backed domain modeling, validation, and explicit service boundaries.",
+        "Implemented JWT/RBAC, rate limiting, Redis caching, NATS messaging, Docker local infrastructure, Prometheus metrics, structured logging, health endpoints, and graceful shutdown.",
       ],
-      tech: ["Go", "PostgreSQL", "Redis", "NATS", "JWT"],
+      tech: ["Go", "PostgreSQL", "Redis", "NATS", "JWT/RBAC"],
       accent: "cyan",
       github:
         "https://github.com/nyashahama/healthcare-access-connector-backend",
@@ -84,24 +99,23 @@ export const PORTFOLIO = {
       featured: true,
     },
     {
-      id: "03",
+      id: "04",
       name: "guard-rail",
-      tagline: "Secure execution runtime for modern automation",
+      tagline: "Rust policy-enforcement runtime for internal API traffic",
       description:
-        "guard-rail is an active Rust runtime and secure execution platform for operational workloads, focused on production-hardening concerns such as readiness, metrics, trace-aware logging, graceful shutdown, and deployment support.",
+        "guard-rail is a Rust policy-enforcement runtime for internal API traffic with route-level authorization, audit persistence, replay capture, and readiness and metrics surfaces, plus a documented beta deployment path across container, Postgres, and reverse-proxy infrastructure.",
       highlights: [
-        "Building the core runtime in Rust with a focus on secure execution, operational resilience, and infrastructure-oriented service design.",
-        "Added readiness, health, and metrics endpoints together with trace-context-aware request logging for stronger production visibility.",
-        "Implemented graceful shutdown and drain behavior plus container and systemd deployment artifacts for practical operations.",
+        "Building the core runtime in Rust with route-level authorization, audit persistence, and replay capture for stronger production visibility.",
+        "Added readiness, health, and metrics surfaces plus a documented beta deployment path covering container, Postgres, and reverse-proxy infrastructure.",
       ],
-      tech: ["Rust", "Systems", "Observability", "Docker", "Runtime Design"],
+      tech: ["Rust", "Authorization", "Audit", "Docker", "Runtime Design"],
       accent: "magenta",
       github: "https://github.com/nyashahama/guard-rail",
       live: "https://guard-rail-steel.vercel.app",
       featured: true,
     },
     {
-      id: "04",
+      id: "05",
       name: "Burnout Predictor",
       tagline: "Workload analysis with Go + Next.js product delivery",
       description:
@@ -115,62 +129,10 @@ export const PORTFOLIO = {
       accent: "yellow",
       github: "https://github.com/nyashahama/burnout-predictor.git",
       live: "https://burnout-predictor-ten.vercel.app/",
-      featured: true,
-    },
-    {
-      id: "05",
-      name: "AgencyForge",
-      tagline: "Agency operations software with AI campaign delivery",
-      description:
-        "AgencyForge is an agency operations platform for turning client briefs into campaign execution. It covers client intake, briefs, campaigns, white-label portals, documents, workspace metadata, and analytics through a Next.js product surface backed by a Go API and PostgreSQL workflow model.",
-      highlights: [
-        "Designed agency-scoped backend domains for auth, clients, briefs, campaigns, portals, workspace metadata, and analytics.",
-        "Built a product shell that spans the full operator workflow from intake to delivery instead of a narrow single-page demo.",
-        "Used SQL migrations, sqlc, integration tests, request hardening, and CI verification to keep the backend durable and maintainable.",
-      ],
-      tech: ["Next.js", "TypeScript", "Go", "Postgres"],
-      accent: "yellow",
-      github: "https://github.com/nyashahama/AgencyForge",
-      live: "https://agency-forge.vercel.app",
       featured: false,
     },
     {
       id: "06",
-      name: "Asymmetric Risk Mapper",
-      tagline: "A decision tool for existential business risk",
-      description:
-        "A SaaS assessment product that helps business owners surface the few risks that can actually break the company. Users complete a 20-question assessment, see a live probability-vs-impact heat map, pay once through Stripe to unlock the full report, and receive a detailed risk register with a 30-day action plan.",
-      highlights: [
-        "Built an auth-free product flow using anonymous sessions, token-based API access, and public report delivery without forcing account creation.",
-        "Implemented interactive assessment UX, client-side scoring, preview heat maps, checkout, report polling, and email-based access links.",
-        "Turned a complex business analysis concept into a clear product journey with pricing, paywall, and deliverable-grade reports.",
-      ],
-      tech: ["Next.js", "TypeScript", "Stripe", "Go API"],
-      accent: "magenta",
-      github: "https://github.com/nyashahama/asymmetric-risk-mapper",
-      live: "https://asymmetric-risk-mapper.vercel.app/",
-      featured: false,
-    },
-
-    {
-      id: "07",
-      name: "FormFlow AI",
-      tagline: "Product UX for AI-assisted form automation",
-      description:
-        "FormFlow AI presents a product workflow for automating complex government forms: capturing user information once, reusing it across submissions, integrating with external systems, and keeping a visible audit trail so every automated step remains traceable.",
-      highlights: [
-        "Built a complete product surface with hero, stats, workflow explanation, integrations, audit-trail storytelling, pricing, and trust-building sections.",
-        "Framed automation around compliance and traceability, which makes the product feel operational rather than just 'AI for forms'.",
-        "Focused on turning a bureaucratic process into a clean, credible user journey with strong information architecture and motion.",
-      ],
-      tech: ["Next.js", "TypeScript", "Tailwind", "Product UX"],
-      accent: "cyan",
-      github: "https://github.com/nyashahama/FormFlow-AI",
-      live: "https://form-flow-ai-pink.vercel.app",
-      featured: false,
-    },
-    {
-      id: "08",
       name: "E-commerce Search Optimization",
       tagline: "Search performance through data-structure design",
       description:
@@ -187,7 +149,7 @@ export const PORTFOLIO = {
       featured: false,
     },
     {
-      id: "09",
+      id: "07",
       name: "Wedding Planning System",
       tagline: "Collaborative planning workflow for event coordination",
       description:
@@ -202,37 +164,38 @@ export const PORTFOLIO = {
       live: null,
       featured: false,
     },
+  ],
+
+  // ── Open Source Contributions ─────────────────────────────
+  openSource: [
     {
-      id: "10",
-      name: "AI Life CFO",
-      tagline: "Investor-style product storytelling for personal finance AI",
-      description:
-        "A polished Next.js product presentation for an AI cash-flow platform aimed at high-earning professionals. It combines an investor-style pitch deck with a separate marketing landing page, using scroll-driven sections, custom interactions, and strong visual storytelling to explain the product, market, traction, and business model.",
+      name: "Turso",
+      role: "Upstream Contributor",
+      date: "May 2026",
+      summary:
+        "Merged two Rust database-engine fixes around SQLite-compatible schema rewrites, preserving AUTOINCREMENT invariants after DROP COLUMN and clearing stale sqlite_sequence metadata after ALTER COLUMN.",
       highlights: [
-        "Built both a founder-pitch narrative and a public landing experience inside one cohesive product surface.",
-        "Used custom cursor behavior, scroll-snap slides, and deliberate section sequencing to make the concept feel like a real startup, not a template site.",
+        "Patched schema serialization, ALTER execution state, SQL regressions, and file-backed reopen integration coverage for rowid reuse and stale metadata failures.",
       ],
-      tech: ["Next.js", "TypeScript", "Tailwind", "Interaction Design"],
-      accent: "green",
-      github: "https://github.com/nyashahama/AI-Life-CFO.git",
-      live: "https://ai-life-cfo.vercel.app",
-      featured: false,
+      links: [
+        { label: "PR #6993", href: "https://github.com/tursodatabase/turso/pull/6993" },
+        { label: "PR #7117", href: "https://github.com/tursodatabase/turso/pull/7117" },
+      ],
+      accent: "cyan",
     },
     {
-      id: "11",
-      name: "Music Awards System",
-      tagline: "Awards operations platform with role-based workflows",
-      description:
-        "A full-stack platform for running music awards end to end: nominations, voting, analytics, dashboards, and role-based access for different actors in the process. The system combines a Go backend with PostgreSQL and containerized services to support a workflow-heavy application with real operational structure.",
+      name: "CrossHair",
+      role: "Upstream Contributor",
+      date: "May 2026",
+      summary:
+        "Merged Python/C tracer work moving call-target normalization into CrossHair's C extension while keeping keyword handling and trace dispatch behavior stable.",
       highlights: [
-        "Covered the full awards lifecycle instead of a narrow feature slice, which makes the project closer to a real business platform.",
-        "Used Go, PostgreSQL, Dockerized services, and CI/CD automation to move beyond a basic student CRUD implementation.",
+        "Added coverage for bound Python methods, callable instances, C-level bound methods, reference behavior, and descriptor-error propagation.",
       ],
-      tech: ["Go", "Gin", "PostgreSQL", "React", "Angular", "Docker"],
-      accent: "cyan",
-      github: "https://github.com/nyashahama/music_awards_server",
-      live: null,
-      featured: false,
+      links: [
+        { label: "PR #413", href: "https://github.com/pschanely/CrossHair/pull/413" },
+      ],
+      accent: "green",
     },
   ],
 
@@ -286,6 +249,7 @@ export const PORTFOLIO = {
       "SQL",
       "pgx",
       "sqlc",
+      "goose",
       "JWT",
       "NATS",
       "Prometheus",
@@ -293,6 +257,7 @@ export const PORTFOLIO = {
       "Linux",
       "GitHub Actions",
       "Observability",
+      "E2E Tests",
     ],
   },
 
@@ -303,12 +268,14 @@ export const PORTFOLIO = {
       period: "2023 – Present",
       location: "Remote",
       description:
-        "Building backend-heavy products and developer tooling across healthcare, property management, workflow automation, and operational software, with a focus on production-minded engineering.",
+        "Building public, working systems in Go, TypeScript, and Rust across healthcare operations, property platforms, data workflows, and upstream OSS, with a focus on production-minded engineering.",
       highlights: [
-        "Designed Go services with JWT authentication, role-aware access control, PostgreSQL schema design, and explicit SQL access patterns using pgx and sqlc.",
-        "Added Redis caching, health checks, structured logging, metrics, and Dockerized local environments across multiple services.",
-        "Built modern product surfaces with TypeScript and Next.js while keeping backend concerns like auth, data modeling, and observability central.",
-        "Expanded into Rust runtime work through guard-rail while continuing to deepen interest in distributed systems and database internals.",
+        "Contributed two merged Rust fixes to Turso's production SQLite-compatible database engine (AUTOINCREMENT preservation after DROP COLUMN, stale sqlite_sequence metadata after ALTER COLUMN) and a merged Python/C tracer contribution to CrossHair.",
+        "Built and shipped three live production-oriented systems: ClinicPulse for South Africa's public healthcare network, StrataHQ for sectional-title property management, and Healthcare Access Connector with HIPAA/POPIA-aligned scheduling and telemedicine.",
+        "Designed Go REST APIs with JWT/RBAC across multi-role hierarchies, PostgreSQL schemas with pgx, sqlc, and goose migrations, Redis-backed caching and rate limiting, and NATS-based async messaging.",
+        "Added Prometheus metrics, structured logging, health/readiness endpoints, request tracing, graceful shutdown, Docker Compose environments, and GitHub Actions CI with race detection and release-readiness gates.",
+        "Created a reusable Go backend scaffold with documented quality gates, adoption checklist, bootstrap verification, and release automation via GitHub Releases/GHCR.",
+        "Building guard-rail, a Rust policy-enforcement runtime for internal API traffic with route-level authorization, audit persistence, replay capture, and a documented beta deployment path.",
       ],
       accent: "cyan",
     },
@@ -363,3 +330,4 @@ export type Project = (typeof PORTFOLIO.projects)[number];
 export type Experience = (typeof PORTFOLIO.experience)[number];
 export type Post = (typeof PORTFOLIO.posts)[number];
 export type SkillCat = (typeof PORTFOLIO.skills.categories)[number];
+export type OpenSourceContribution = (typeof PORTFOLIO.openSource)[number];

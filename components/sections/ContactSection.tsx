@@ -94,7 +94,7 @@ export default function ContactSection() {
         <div
           className={`mb-16 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <p className="section-label mb-3">06 / Contact</p>
+          <p className="section-label mb-3">07 / Contact</p>
           <h2 className="section-title">
             Let&apos;s{" "}
             <span className="text-cyber-cyan text-glow-cyan">Connect</span>

@@ -6,6 +6,7 @@ import { PORTFOLIO } from "@/lib/data";
 const NAV_LINKS = [
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
+  { href: "#open-source", label: "OSS" },
   { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
   { href: "#notes", label: "Notes" },

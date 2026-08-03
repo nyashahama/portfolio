@@ -154,7 +154,7 @@ export default function ExperienceSection() {
         <div
           className={`mb-20 transition-all duration-700 ${headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <p className="section-label mb-3">04 / Experience</p>
+          <p className="section-label mb-3">05 / Experience</p>
           <h2 className="section-title">
             Engineering{" "}
             <span className="text-cyber-cyan text-glow-cyan">Work</span>
