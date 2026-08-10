@@ -5,11 +5,11 @@ import { PORTFOLIO } from "@/lib/data";
 
 const NAV_LINKS = [
   { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#open-source", label: "OSS" },
-  { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
-  { href: "#notes", label: "Notes" },
+  { href: "#open-source", label: "OSS" },
+  { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
+  { href: "#education", label: "Education" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -81,7 +81,7 @@ export default function Navbar() {
           </a>
 
           {/* ── Desktop links ── */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden lg:flex items-center gap-7">
             {NAV_LINKS.map(({ href, label }) => {
               const id = href.slice(1);
               const isActive = activeSection === id;
@@ -119,31 +119,36 @@ export default function Navbar() {
           </ul>
 
           {/* ── Desktop CTA ── */}
-          <a
-            href={PORTFOLIO.resume}
-            className="hidden md:flex items-center gap-2 btn-neon text-xs"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span>Resume</span>
-            <svg
-              className="shrink-0"
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
+          <div className="hidden lg:block">
+            <a
+              href={PORTFOLIO.resume}
+              className="btn-neon text-xs"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
-            </svg>
-          </a>
+              <span>CV</span>
+              <svg
+                className="shrink-0"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+              </svg>
+            </a>
+          </div>
 
           {/* ── Mobile menu button ── */}
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2"
+            type="button"
+            className="lg:hidden flex flex-col gap-1.5 p-2"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
+            aria-controls="mobile-navigation"
+            aria-expanded={menuOpen}
           >
             <span
               className={`block h-px w-6 bg-cyber-cyan transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
@@ -160,9 +165,12 @@ export default function Navbar() {
 
       {/* ── Mobile menu ── */}
       <div
+        id="mobile-navigation"
+        aria-hidden={!menuOpen}
+        inert={!menuOpen}
         className={`
         fixed inset-0 z-40 bg-cyber-bg/98 backdrop-blur-xl flex flex-col items-center justify-center
-        transition-all duration-500 md:hidden
+        transition-all duration-500 lg:hidden
         ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
       `}
       >
@@ -184,21 +192,21 @@ export default function Navbar() {
               className="btn-neon"
               target="_blank"
               rel="noopener noreferrer"
-          >
-            Resume
-            <svg
-              className="shrink-0"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              aria-hidden="true"
             >
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
-            </svg>
-          </a>
+              View CV
+              <svg
+                className="shrink-0"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                aria-hidden="true"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+              </svg>
+            </a>
           </li>
         </ul>
       </div>

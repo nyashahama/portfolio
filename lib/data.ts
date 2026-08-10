@@ -1,185 +1,97 @@
-// ============================================================
-// PORTFOLIO DATA
-// Customized for Nyasha Hama
-// ============================================================
-
 export const PORTFOLIO = {
-  // ── Personal Info ──────────────────────────────────────────
   name: "Nyasha Hama",
   title:
-    "Backend & Platform Engineer | Go, TypeScript, Rust | Healthcare Ops, Data Systems & Upstream OSS",
+    "Full-Stack Software Engineer | React, Next.js, TypeScript & Go | Product & Platform Engineering",
+  role: "Full-Stack Software Engineer",
+  stackLine: "React · Next.js · TypeScript · Go",
   tagline:
-    "Building public, working systems in Go, TypeScript, and Rust across healthcare ops, data systems, and upstream OSS",
+    "I build operational products end to end—from responsive interfaces and reusable design systems to Go services, PostgreSQL data models, background jobs, CI, and observability.",
   location: "Cape Town, South Africa",
   email: "nyashaahama@gmail.com",
+  website: "https://portfolio-topaz-one-58.vercel.app",
   github: "https://github.com/nyashahama",
   linkedin: "https://www.linkedin.com/in/nyasha-hama-5b1312229",
-  twitter: "https://x.com/cCraftsman_",
-  resume: "./nyasha_hama_cv.pdf",
+  resume: "/nyasha_hama_cv.pdf",
 
-  // ── Hero Terminal Lines ────────────────────────────────────
-  terminalLines: [
-    "$ whoami",
-    "> nyasha_hama",
-    "$ cat role.txt",
-    "> backend_platform_engineer",
-    "$ ls core_stack/",
-    "> go  rust  typescript  nextjs  postgres  redis",
-    "$ ./deploy --profile production",
-    "> booting services...",
-    "> observability online",
-    "> ready.",
+  heroProof: [
+    {
+      label: "Frontend & product",
+      value: "React / Next.js / TypeScript",
+      detail: "Responsive interfaces, design systems, accessible states",
+      accent: "cyan",
+    },
+    {
+      label: "Backend & data",
+      value: "Go / PostgreSQL / Redis",
+      detail: "APIs, data models, background jobs, secure access",
+      accent: "green",
+    },
+    {
+      label: "Platform & quality",
+      value: "Docker / CI / Observability",
+      detail: "Automated tests, delivery gates, operational visibility",
+      accent: "magenta",
+    },
   ],
 
-  // ── About ─────────────────────────────────────────────────
   about: {
     bio: [
-      "I build backend and platform systems with Go, TypeScript, Rust, PostgreSQL, and Redis, with emphasis on healthcare operations, property platforms, data workflows, auth/RBAC, observability, and release gates.",
-      "Recent evidence includes merged upstream Turso database-engine fixes, a merged CrossHair Python/C tracer contribution, a live clinic-operations platform for South Africa's public healthcare network, and a live sectional-title property platform with real workflow depth.",
-      "I still bring a broader engineering foundation from Java, C++, and C#, including early backend and web work with ASP.NET, but my current focus is firmly on modern backend and product delivery.",
-      "I am especially interested in distributed systems, secure execution, database internals, and the engineering details that make software reliable under real usage.",
+      "Full-stack software engineer building operational products across responsive React and Next.js interfaces, Go services, PostgreSQL data models, background jobs, CI, and observability.",
+      "Built ClinicPulse and StrataHQ across offline-capable field reporting, levy reconciliation, maintenance operations, role-based access controls, and reusable frontend systems. Authored three upstream PRs merged into Turso's Rust database engine and CrossHair's Python/C tracer.",
     ],
-    stats: [
-      { label: "Degree", value: "BSc Computer Science" },
-      { label: "Core Stack", value: "Go · Rust · TS" },
-      { label: "Frontend", value: "TypeScript · Next.js" },
-      { label: "Upstream OSS", value: "Merged in Turso + CrossHair" },
+    pillars: [
+      {
+        label: "Product surface",
+        value: "Interfaces that hold up on desktop and mobile",
+      },
+      {
+        label: "Systems depth",
+        value: "APIs, data models, jobs, security, and reliability",
+      },
+      {
+        label: "Proof of craft",
+        value: "Shipped products, merged upstream work, tested delivery",
+      },
     ],
   },
 
-  // ── Projects ──────────────────────────────────────────────
-  projects: [
+  experience: [
     {
-      id: "01",
-      name: "ClinicPulse",
-      tagline: "Clinic-operations platform for SA's public healthcare network",
+      role: "Independent Full-Stack Engineer",
+      company: "ClinicPulse & StrataHQ",
+      period: "Jan 2023 – Present",
+      location: "Remote",
       description:
-        "A live TypeScript and Go clinic-operations platform for South Africa's public primary healthcare network, covering facility status, referral routing, field reporting, and district operational intelligence across 3,500+ facilities.",
+        "Building both self-directed products across product interfaces, service boundaries, data workflows, and automated delivery.",
       highlights: [
-        "Built role-based workflows for admin, district, facility, field, partner, and public users, with PostgreSQL-backed API paths and product surfaces for operational decision-making.",
-        "Added release gates, auth/security hardening, pilot data integrity, partner workflows, E2E coverage, smoke/load scripts, and observability primitives including request correlation, metrics, and runbooks.",
+        "Built both self-directed products across responsive React and Next.js interfaces, Go APIs, PostgreSQL data models, and automated test and delivery pipelines.",
+        "Created reusable frontend foundations for desktop and mobile—role-aware navigation, workspace shells, semantic design tokens, dark mode, mutation and error states, and automated overflow and accessibility checks.",
+        "Implemented hashed sessions, RBAC, scoped API keys, and CSRF checks; instrumented services with request correlation, structured logs, Prometheus metrics, and health/readiness endpoints.",
+        "Made offline field reporting recoverable with persisted queues and conflict handling in ClinicPulse; made StrataHQ's levy reconciliation transactional and bank-statement imports safe to retry through idempotent background jobs.",
       ],
-      tech: ["TypeScript", "Go", "PostgreSQL", "Auth/RBAC", "Observability"],
       accent: "cyan",
-      github: "https://github.com/nyashahama/clinic-pulse",
-      live: "https://clinic-pulse-five.vercel.app",
-      featured: true,
-    },
-    {
-      id: "02",
-      name: "StrataHQ",
-      tagline: "Sectional-title property operations for agents, trustees & residents",
-      description:
-        "A live Next.js and Go platform for South African sectional-title property operations, serving agents, trustees, and residents across scheme management workflows with real workflow depth.",
-      highlights: [
-        "Built scheme-scoped levy operations, maintenance workflows, resident/trustee communications, AGM administration, document access, audit logs, open API access, and predictive levy analytics.",
-        "Modeled production-style backend paths with PostgreSQL, pgx, sqlc, goose migrations, Redis, auth/RBAC, tests/CI, and deployment-ready project structure.",
-      ],
-      tech: ["Next.js", "TypeScript", "Go", "PostgreSQL", "Redis"],
-      accent: "green",
-      github: "https://github.com/nyashahama/StrataHQ",
-      live: "https://strata-hq-blue.vercel.app",
-      featured: true,
-    },
-    {
-      id: "03",
-      name: "Healthcare Access Connector",
-      tagline: "Go healthcare backend for patient-provider access",
-      description:
-        "A Go healthcare access backend connecting patients and providers through scheduling, search, notifications, telemedicine support, and role-aware workflows, shaped around HIPAA/POPIA-aligned access design.",
-      highlights: [
-        "Designed patient, provider, appointment, staff invitation, and notification flows with PostgreSQL-backed domain modeling, validation, and explicit service boundaries.",
-        "Implemented JWT/RBAC, rate limiting, Redis caching, NATS messaging, Docker local infrastructure, Prometheus metrics, structured logging, health endpoints, and graceful shutdown.",
-      ],
-      tech: ["Go", "PostgreSQL", "Redis", "NATS", "JWT/RBAC"],
-      accent: "cyan",
-      github:
-        "https://github.com/nyashahama/healthcare-access-connector-backend",
-      live: "https://healthcare-access-connector-web.vercel.app/",
-      featured: true,
-    },
-    {
-      id: "04",
-      name: "guard-rail",
-      tagline: "Rust policy-enforcement runtime for internal API traffic",
-      description:
-        "guard-rail is a Rust policy-enforcement runtime for internal API traffic with route-level authorization, audit persistence, replay capture, and readiness and metrics surfaces, plus a documented beta deployment path across container, Postgres, and reverse-proxy infrastructure.",
-      highlights: [
-        "Building the core runtime in Rust with route-level authorization, audit persistence, and replay capture for stronger production visibility.",
-        "Added readiness, health, and metrics surfaces plus a documented beta deployment path covering container, Postgres, and reverse-proxy infrastructure.",
-      ],
-      tech: ["Rust", "Authorization", "Audit", "Docker", "Runtime Design"],
-      accent: "magenta",
-      github: "https://github.com/nyashahama/guard-rail",
-      live: "https://guard-rail-steel.vercel.app",
-      featured: true,
-    },
-    {
-      id: "05",
-      name: "Burnout Predictor",
-      tagline: "Workload analysis with Go + Next.js product delivery",
-      description:
-        "A workload-analysis application that combines signal ingestion, backend scoring, and a polished Next.js interface to estimate burnout risk and surface intervention suggestions through a production-style user experience.",
-      highlights: [
-        "Built Go and PostgreSQL services to ingest sleep, calendar, and work-pattern signals and compute rolling burnout-risk assessments.",
-        "Integrated the scoring backend with a Next.js frontend and shipped the product publicly.",
-        "Turned behavioral data into a usable product flow rather than a narrow scoring demo.",
-      ],
-      tech: ["Next.js", "TypeScript", "Go", "PostgreSQL"],
-      accent: "yellow",
-      github: "https://github.com/nyashahama/burnout-predictor.git",
-      live: "https://burnout-predictor-ten.vercel.app/",
-      featured: false,
-    },
-    {
-      id: "06",
-      name: "E-commerce Search Optimization",
-      tagline: "Search performance through data-structure design",
-      description:
-        "A Java backend project focused on improving e-commerce search speed and relevance by applying core data-structure and systems ideas to product discovery. The work explores how graphs, binary search trees, concurrent maps, and relational persistence can be combined to serve faster search experiences under load.",
-      highlights: [
-        "Used classic computer science tools in a practical product domain instead of treating data structures as theory-only exercises.",
-        "Focused on the backend mechanics of search performance, not just the UI layer or catalog screens.",
-      ],
-      tech: ["Java", "Spring Boot", "MySQL", "Data Structures"],
-      accent: "yellow",
-      github:
-        "https://github.com/nyashahama/Optimizing-Search-Algorithms-in-E-commerce-Platforms-backend",
-      live: null,
-      featured: false,
-    },
-    {
-      id: "07",
-      name: "Wedding Planning System",
-      tagline: "Collaborative planning workflow for event coordination",
-      description:
-        "A collaborative full-stack application for coordinating the moving parts of wedding planning through a React frontend and Node/Express backend. The project emphasized clean API design, shared ownership in Git, and working as part of a team rather than building in isolation.",
-      highlights: [
-        "Delivered a multi-person university project with shared architecture, version control discipline, and division of responsibilities.",
-        "Used the project to practice turning planning workflows into a usable full-stack product instead of isolated classroom exercises.",
-      ],
-      tech: ["React", "Node.js", "Express", "PostgreSQL"],
-      accent: "green",
-      github: "https://github.com/nyashahama/Team-34-Project",
-      live: null,
-      featured: false,
     },
   ],
 
-  // ── Open Source Contributions ─────────────────────────────
   openSource: [
     {
       name: "Turso",
       role: "Upstream Contributor",
       date: "May 2026",
       summary:
-        "Merged two Rust database-engine fixes around SQLite-compatible schema rewrites, preserving AUTOINCREMENT invariants after DROP COLUMN and clearing stale sqlite_sequence metadata after ALTER COLUMN.",
+        "Merged two Rust correctness fixes into Turso's SQLite-compatible database engine.",
       highlights: [
-        "Patched schema serialization, ALTER execution state, SQL regressions, and file-backed reopen integration coverage for rowid reuse and stale metadata failures.",
+        "Preserved auto-increment state after DROP COLUMN, removed stale sqlite_sequence metadata after ALTER COLUMN, and proved both fixes with SQL and file-reopen regressions.",
       ],
       links: [
-        { label: "PR #6993", href: "https://github.com/tursodatabase/turso/pull/6993" },
-        { label: "PR #7117", href: "https://github.com/tursodatabase/turso/pull/7117" },
+        {
+          label: "PR #6993",
+          href: "https://github.com/tursodatabase/turso/pull/6993",
+        },
+        {
+          label: "PR #7117",
+          href: "https://github.com/tursodatabase/turso/pull/7117",
+        },
       ],
       accent: "cyan",
     },
@@ -188,146 +100,150 @@ export const PORTFOLIO = {
       role: "Upstream Contributor",
       date: "May 2026",
       summary:
-        "Merged Python/C tracer work moving call-target normalization into CrossHair's C extension while keeping keyword handling and trace dispatch behavior stable.",
+        "Moved call-target normalization from Python into CrossHair's C tracer without changing keyword handling or trace dispatch.",
       highlights: [
-        "Added coverage for bound Python methods, callable instances, C-level bound methods, reference behavior, and descriptor-error propagation.",
+        "Added regressions for Python and C bound methods, callable instances, and descriptor errors.",
       ],
       links: [
-        { label: "PR #413", href: "https://github.com/pschanely/CrossHair/pull/413" },
+        {
+          label: "PR #413",
+          href: "https://github.com/pschanely/CrossHair/pull/413",
+        },
       ],
       accent: "green",
+    },
+  ],
+
+  projects: [
+    {
+      id: "01",
+      name: "ClinicPulse",
+      status: "Alpha",
+      tagline: "Clinic operations across public, field, district, and admin workflows",
+      description:
+        "Clinic-operations product for public discovery, field reporting, district review, partner access, and administrative governance.",
+      highlights: [
+        "Built role-specific workflows in Next.js, backed by a Go API, PostgreSQL, and a same-origin proxy.",
+        "Implemented offline-capable field reporting with persisted device queues, retry and conflict recovery, visit verification, and server synchronization.",
+        "Built a responsive shell, command palette, semantic tokens, and dark mode, with automated mobile-overflow and axe accessibility checks. At the Aug 2026 revision, all 543 frontend tests and the full Go test suite passed.",
+      ],
+      tech: ["Next.js", "TypeScript", "Go", "PostgreSQL", "Playwright"],
+      accent: "cyan",
+      github: "https://github.com/nyashahama/clinic-pulse",
+      live: "https://clinic-pulse-five.vercel.app",
+    },
+    {
+      id: "02",
+      name: "StrataHQ",
+      status: "Beta",
+      tagline: "Property operations for agents, trustees, and residents",
+      description:
+        "Property-operations product spanning levies, maintenance, governance, communications, and documents.",
+      highlights: [
+        "Built scheme-scoped dashboards and navigation in Next.js, backed by modular Go services, type-safe PostgreSQL access via sqlc, Redis, and a same-origin API proxy.",
+        "Delivered levy-period creation, transactional reconciliation, bank-statement import, payment-candidate matching, manual review, and idempotent background processing.",
+        "Built maintenance workflows from resident intake through approval, contractor assignment, SLA tracking, and resolution, with a responsive off-canvas workspace on mobile.",
+      ],
+      tech: ["Next.js", "TypeScript", "Go", "PostgreSQL", "Redis"],
+      accent: "green",
+      github: "https://github.com/nyashahama/StrataHQ",
+      live: "https://strata-hq-blue.vercel.app",
+    },
+    {
+      id: "03",
+      name: "E-Commerce Search Backend",
+      status: "Java 21",
+      tagline: "Comparable search paths with operational controls",
+      description:
+        "Spring Boot commerce backend with four comparable search paths, asynchronous benchmark jobs, and operational health controls.",
+      highlights: [
+        "Built role-aware APIs for catalog, cart, checkout, orders, inventory, returns, payments, reviews, and addresses, with PostgreSQL and Flyway persistence.",
+        "Implemented SQL LIKE, PostgreSQL full-text, in-memory, and OpenSearch discovery paths with Kafka-driven indexing and benchmark jobs.",
+        "Enforced endpoint coverage and authorization expectations with contract tests, a buyer-flow smoke test, and Java 21 CI.",
+      ],
+      tech: ["Java 21", "Spring Boot", "PostgreSQL", "OpenSearch", "Kafka"],
+      accent: "yellow",
+      github:
+        "https://github.com/nyashahama/optimizing-search-algorithms-in-e-commerce-platforms-backend",
+      live: null,
     },
   ],
 
   skills: {
     categories: [
       {
-        name: "Backend & Platform",
-        icon: "◉",
+        name: "Languages",
+        icon: "01",
+        summary: "TypeScript, Go, Java, SQL, JavaScript, Rust, C#, C++",
         items: [
-          { name: "Go", level: 92 },
-          { name: "PostgreSQL", level: 89 },
-          { name: "Redis", level: 84 },
-          { name: "REST APIs", level: 91 },
-          { name: "Service Design", level: 88 },
+          "TypeScript",
+          "Go",
+          "Java",
+          "SQL",
+          "JavaScript",
+          "Rust",
+          "C#",
+          "C++",
         ],
       },
       {
-        name: "Product Delivery",
-        icon: "◌",
+        name: "Frontend & Product",
+        icon: "02",
+        summary: "Interfaces, systems, and accessible product states",
         items: [
-          { name: "TypeScript", level: 88 },
-          { name: "Next.js", level: 86 },
-          { name: "React", level: 84 },
-          { name: "Auth Flows", level: 87 },
-          { name: "UI Systems", level: 80 },
+          "React",
+          "Next.js",
+          "Tailwind CSS",
+          "TanStack Query",
+          "Responsive UI",
+          "Design systems",
+          "Accessibility testing",
         ],
       },
       {
-        name: "Foundations",
-        icon: "◈",
+        name: "Backend & Data",
+        icon: "03",
+        summary: "Service boundaries, persistence, and background work",
         items: [
-          { name: "Rust", level: 80 },
-          { name: "Java", level: 84 },
-          { name: "C++", level: 90 },
-          { name: "C#", level: 76 },
-          { name: "Data Structures", level: 94 },
+          "REST APIs",
+          "Go (Chi)",
+          "Spring Boot",
+          "Node.js",
+          "PostgreSQL",
+          "pgx",
+          "sqlc",
+          "Redis",
+          "Background jobs",
+          "SQLite internals",
         ],
       },
-    ],
-    technologies: [
-      "Go",
-      "Rust",
-      "TypeScript",
-      "Next.js",
-      "PostgreSQL",
-      "Redis",
-      "Node.js",
-      "Java",
-      "C++",
-      "C#",
-      "SQL",
-      "pgx",
-      "sqlc",
-      "goose",
-      "JWT",
-      "NATS",
-      "Prometheus",
-      "Docker",
-      "Linux",
-      "GitHub Actions",
-      "Observability",
-      "E2E Tests",
+      {
+        name: "Platform & Quality",
+        icon: "04",
+        summary: "Delivery confidence and operational visibility",
+        items: [
+          "Docker",
+          "Linux",
+          "Prometheus",
+          "Structured logging",
+          "Request tracing",
+          "GitHub Actions",
+          "Playwright",
+          "Vitest",
+          "CI/CD",
+        ],
+      },
     ],
   },
 
-  experience: [
-    {
-      role: "Backend & Platform Engineer",
-      company: "Independent Software Engineer",
-      period: "2023 – Present",
-      location: "Remote",
-      description:
-        "Building public, working systems in Go, TypeScript, and Rust across healthcare operations, property platforms, data workflows, and upstream OSS, with a focus on production-minded engineering.",
-      highlights: [
-        "Contributed two merged Rust fixes to Turso's production SQLite-compatible database engine (AUTOINCREMENT preservation after DROP COLUMN, stale sqlite_sequence metadata after ALTER COLUMN) and a merged Python/C tracer contribution to CrossHair.",
-        "Built and shipped three live production-oriented systems: ClinicPulse for South Africa's public healthcare network, StrataHQ for sectional-title property management, and Healthcare Access Connector with HIPAA/POPIA-aligned scheduling and telemedicine.",
-        "Designed Go REST APIs with JWT/RBAC across multi-role hierarchies, PostgreSQL schemas with pgx, sqlc, and goose migrations, Redis-backed caching and rate limiting, and NATS-based async messaging.",
-        "Added Prometheus metrics, structured logging, health/readiness endpoints, request tracing, graceful shutdown, Docker Compose environments, and GitHub Actions CI with race detection and release-readiness gates.",
-        "Created a reusable Go backend scaffold with documented quality gates, adoption checklist, bootstrap verification, and release automation via GitHub Releases/GHCR.",
-        "Building guard-rail, a Rust policy-enforcement runtime for internal API traffic with route-level authorization, audit persistence, replay capture, and a documented beta deployment path.",
-      ],
-      accent: "cyan",
-    },
-  ],
-
-  posts: [
-    {
-      slug: "database-internals",
-      title: "Database Internals and Why I Keep Coming Back to Them",
-      date: "Current Focus",
-      readTime: "Core interest",
-      tags: ["Databases", "PostgreSQL", "Storage"],
-      excerpt:
-        "I am drawn to the layers below application code: indexing, query planning, storage tradeoffs, and the details that decide whether a system stays fast and understandable as complexity grows.",
-      accent: "cyan",
-    },
-    {
-      slug: "distributed-systems",
-      title: "Distributed Systems Beyond the Buzzwords",
-      date: "Current Focus",
-      readTime: "Core interest",
-      tags: ["Distributed Systems", "Messaging", "Reliability"],
-      excerpt:
-        "The interesting part is not the label. It is the engineering discipline around failure modes, observability, explicit boundaries, and service behavior under real operational pressure.",
-      accent: "magenta",
-    },
-    {
-      slug: "secure-runtime-design",
-      title: "Runtime Design, Secure Execution, and guard-rail",
-      date: "Current Focus",
-      readTime: "Active work",
-      tags: ["Rust", "Runtime Design", "Security"],
-      excerpt:
-        "guard-rail pulls me toward secure execution, operational hardening, and the kind of runtime design where small engineering choices have outsized effects on safety and resilience.",
-      accent: "green",
-    },
-    {
-      slug: "observability-and-operations",
-      title: "Observability as a Product Requirement",
-      date: "Current Focus",
-      readTime: "Core interest",
-      tags: ["Observability", "Metrics", "Operations"],
-      excerpt:
-        "Health probes, readiness, structured logs, trace context, and metrics are not decoration. They shape how confidently a system can be shipped, debugged, and evolved.",
-      accent: "yellow",
-    },
-  ],
+  education: {
+    institution: "University of Johannesburg",
+    qualification: "BSc Computer Science coursework completed through final year",
+    period: "2022 – 2024",
+  },
 };
 
-// Type exports
 export type Project = (typeof PORTFOLIO.projects)[number];
 export type Experience = (typeof PORTFOLIO.experience)[number];
-export type Post = (typeof PORTFOLIO.posts)[number];
 export type SkillCat = (typeof PORTFOLIO.skills.categories)[number];
 export type OpenSourceContribution = (typeof PORTFOLIO.openSource)[number];
