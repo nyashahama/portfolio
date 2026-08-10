@@ -6,25 +6,28 @@ import { useInView } from "@/lib/useInView";
 
 const ACCENT_MAP: Record<
   string,
-  { text: string; border: string; tag: string; dot: string }
+  { text: string; border: string; tag: string; dot: string; hoverText: string }
 > = {
   cyan: {
     text: "text-cyber-cyan",
     border: "border-cyber-cyan/30",
     tag: "text-cyber-cyan border-cyber-cyan/30 bg-cyber-cyan/10",
     dot: "bg-cyber-cyan shadow-neon-cyan",
+    hoverText: "hover:text-cyber-cyan",
   },
   green: {
     text: "text-cyber-green",
     border: "border-cyber-green/30",
     tag: "text-cyber-green border-cyber-green/30 bg-cyber-green/10",
     dot: "bg-cyber-green shadow-neon-green",
+    hoverText: "hover:text-cyber-green",
   },
   magenta: {
     text: "text-cyber-magenta",
     border: "border-cyber-magenta/30",
     tag: "text-cyber-magenta border-cyber-magenta/30 bg-cyber-magenta/10",
     dot: "bg-cyber-magenta shadow-neon-magenta",
+    hoverText: "hover:text-cyber-magenta",
   },
 };
 
@@ -98,7 +101,7 @@ function ContributionCard({
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            className={`font-mono text-xs px-2 py-0.5 border ${accent.border} ${accent.text}/70 bg-cyber-surface/50 hover:${accent.text} transition-colors duration-200`}
+            className={`border bg-cyber-surface/50 px-2 py-0.5 font-mono text-xs transition-colors duration-200 ${accent.border} ${accent.text} ${accent.hoverText}`}
           >
             {link.label} ↗
           </a>
@@ -121,7 +124,7 @@ export default function OpenSourceSection() {
     <section
       id="open-source"
       ref={ref}
-      className="relative py-32 overflow-hidden"
+      className="relative overflow-hidden bg-cyber-surface/30 py-24 sm:py-32"
     >
       {/* Decorative background */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-cyber-green/3 rounded-full blur-3xl" />
@@ -131,12 +134,12 @@ export default function OpenSourceSection() {
         <div
           className={`mb-16 transition-all duration-700 ${headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <p className="section-label mb-3">03 / Upstream OSS</p>
+          <p className="section-label mb-3">02 / Open Source Contributions</p>
           <div className="flex flex-col sm:flex-row sm:items-end gap-4 justify-between">
             <h2 className="section-title">
-              Merged into{" "}
+              Code that earned its way{" "}
               <span className="text-cyber-green text-glow-green">
-                Open Source
+                upstream
               </span>
             </h2>
             <a
@@ -145,7 +148,7 @@ export default function OpenSourceSection() {
               rel="noopener noreferrer"
               className="font-mono text-xs text-cyber-muted hover:text-cyber-green transition-colors duration-200 shrink-0"
             >
-              More on GitHub →
+              View GitHub profile →
             </a>
           </div>
         </div>

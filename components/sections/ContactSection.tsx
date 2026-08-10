@@ -55,15 +55,6 @@ export default function ContactSection() {
       ),
     },
     {
-      label: "Twitter / X",
-      href: PORTFOLIO.twitter,
-      icon: (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-        </svg>
-      ),
-    },
-    {
       label: "Email",
       href: `mailto:${PORTFOLIO.email}`,
       icon: (
@@ -94,14 +85,14 @@ export default function ContactSection() {
         <div
           className={`mb-16 transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <p className="section-label mb-3">07 / Contact</p>
+          <p className="section-label mb-3">06 / Contact</p>
           <h2 className="section-title">
             Let&apos;s{" "}
             <span className="text-cyber-cyan text-glow-cyan">Connect</span>
           </h2>
           <p className="text-cyber-muted mt-4 max-w-xl">
-            Have a project in mind, want to collaborate, or just want to chat
-            about tech? My inbox is always open — I respond within 24 hours.
+            Hiring for a full-stack role, planning a product, or looking for an
+            engineer who can work from interface to infrastructure? Let&apos;s talk.
           </p>
         </div>
 
@@ -117,7 +108,7 @@ export default function ContactSection() {
                   Message Sent!
                 </p>
                 <p className="font-mono text-sm text-cyber-muted">
-                  I&apos;ll get back to you within 24 hours.
+                  Thanks — your message is in my inbox.
                 </p>
                 <button
                   onClick={() => setFormState("idle")}
@@ -256,7 +247,7 @@ export default function ContactSection() {
                 {PORTFOLIO.location}
               </p>
               <p className="font-mono text-xs text-cyber-muted mt-1">
-                Open to remote worldwide
+                Based in Cape Town · Remote experience
               </p>
             </div>
 

@@ -1,11 +1,11 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
-import ProjectsSection from "@/components/sections/ProjectsSection";
-import OpenSourceSection from "@/components/sections/OpenSourceSection";
-import SkillsSection from "@/components/sections/SkillsSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
-import BlogSection from "@/components/sections/BlogSection";
+import OpenSourceSection from "@/components/sections/OpenSourceSection";
+import ProjectsSection from "@/components/sections/ProjectsSection";
+import SkillsSection from "@/components/sections/SkillsSection";
+import EducationSection from "@/components/sections/EducationSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -15,11 +15,11 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <AboutSection />
-      <ProjectsSection />
-      <OpenSourceSection />
-      <SkillsSection />
       <ExperienceSection />
-      <BlogSection />
+      <OpenSourceSection />
+      <ProjectsSection />
+      <SkillsSection />
+      <EducationSection />
       <ContactSection />
       <Footer />
     </main>
