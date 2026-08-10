@@ -16,6 +16,7 @@ const metadata = read("app/layout.tsx");
 const readme = read("README.md");
 const useInView = read("lib/useInView.ts");
 const globalStyles = read("app/globals.css");
+const favicon = read("app/icon.svg");
 
 test("leads with the finalized full-stack positioning", () => {
   assert.match(
@@ -131,4 +132,13 @@ test("keeps the closed mobile navigation out of the keyboard focus order", () =>
   assert.match(navbar, /aria-expanded=\{menuOpen\}/);
   assert.match(navbar, /id="mobile-navigation"/);
   assert.match(navbar, /inert=\{!menuOpen\}/);
+});
+
+test("uses a compact, accessible NH monogram for the favicon", () => {
+  assert.match(favicon, /<title>Nyasha Hama — NH monogram<\/title>/);
+  assert.match(favicon, /data-mark="nh"/);
+  assert.match(favicon, /stroke="#f4fbff"/);
+  assert.match(favicon, /stroke="#00f5ff"/);
+  assert.match(favicon, /stroke="#ff00aa"/);
+  assert.doesNotMatch(favicon, /<text\b/);
 });
