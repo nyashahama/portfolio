@@ -1,214 +1,116 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PORTFOLIO } from "@/lib/data";
 
-const NAV_LINKS = [
+const LINKS = [
+  { href: "#projects", label: "Work" },
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
-  { href: "#open-source", label: "OSS" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#education", label: "Education" },
+  { href: "#open-source", label: "Open source" },
   { href: "#contact", label: "Contact" },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
-  // ── Scroll detection ──────────────────────────────────────
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-
-      // Determine active section by scroll position
-      const sectionIds = NAV_LINKS.map((l) => l.href.slice(1));
-      for (const id of [...sectionIds].reverse()) {
-        const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 120) {
-          setActiveSection(id);
-          break;
-        }
-      }
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
     };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ── Smooth scroll handler ─────────────────────────────────
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string,
-  ) => {
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      setMenuOpen(false);
-    }
-  };
+  useEffect(() => {
+    document.body.classList.toggle("menu-open", menuOpen);
+    return () => document.body.classList.remove("menu-open");
+  }, [menuOpen]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const links = Array.from(menuRef.current?.querySelectorAll<HTMLAnchorElement>("a[href]") ?? []);
+    links[0]?.focus();
+    const onTab = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        triggerRef.current?.focus();
+        return;
+      }
+      if (event.key !== "Tab" || links.length === 0) return;
+      const first = links[0];
+      const last = links[links.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onTab);
+    return () => document.removeEventListener("keydown", onTab);
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 801px)");
+    const closeOnDesktop = () => { if (desktop.matches) setMenuOpen(false); };
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => desktop.removeEventListener("change", closeOnDesktop);
+  }, []);
 
   return (
     <>
-      <header
-        className={`
-          fixed top-0 left-0 right-0 z-50 transition-all duration-500
-          ${
-            scrolled
-              ? "bg-cyber-bg/95 backdrop-blur-md border-b border-cyber-border"
-              : "bg-transparent"
-          }
-        `}
-      >
-        <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between h-20">
-          {/* ── Logo ── */}
-          <a
-            href="#hero"
-            onClick={(e) => handleNavClick(e, "#hero")}
-            className="font-display text-lg font-bold text-white tracking-widest
-                       hover:text-cyber-cyan transition-colors duration-300 group"
-          >
-            <span className="text-cyber-cyan text-glow-cyan group-hover:animate-flicker">
-              &lt;
-            </span>
-            NH
-            <span className="text-cyber-cyan text-glow-cyan group-hover:animate-flicker">
-              /&gt;
-            </span>
+      <header className={scrolled ? "site-header is-scrolled" : "site-header"}>
+        <nav className="site-nav" aria-label="Main navigation">
+          <a className="brand" href="#hero" aria-label="Nyasha Hama, back to top" onClick={() => setMenuOpen(false)}>
+            <span className="brand-mark">N<span>H</span></span>
+            <span className="brand-label">NYASHA HAMA <small>ENGINEER / BUILDER</small></span>
           </a>
-
-          {/* ── Desktop links ── */}
-          <ul className="hidden lg:flex items-center gap-7">
-            {NAV_LINKS.map(({ href, label }) => {
-              const id = href.slice(1);
-              const isActive = activeSection === id;
-              return (
-                <li key={href}>
-                  <a
-                    href={href}
-                    onClick={(e) => handleNavClick(e, href)}
-                    className={`
-                      font-mono text-xs tracking-widest uppercase transition-all duration-300
-                      relative group
-                      ${
-                        isActive
-                          ? "text-cyber-cyan text-glow-cyan"
-                          : "text-cyber-muted hover:text-cyber-text"
-                      }
-                    `}
-                  >
-                    {/* Active indicator dot */}
-                    {isActive && (
-                      <span className="absolute -left-3 top-1/2 -translate-y-1/2 w-1.5 h-1.5 bg-cyber-cyan rounded-full shadow-neon-cyan" />
-                    )}
-                    {label}
-                    {/* Underline on hover */}
-                    <span
-                      className={`
-                      absolute -bottom-1 left-0 h-px bg-cyber-cyan transition-all duration-300
-                      ${isActive ? "w-full" : "w-0 group-hover:w-full"}
-                    `}
-                    />
-                  </a>
-                </li>
-              );
-            })}
+          <ul className="nav-links">
+            {LINKS.map((link) => <li key={link.href}><a href={link.href}>{link.label}</a></li>)}
           </ul>
-
-          {/* ── Desktop CTA ── */}
-          <div className="hidden lg:block">
-            <a
-              href={PORTFOLIO.resume}
-              className="btn-neon text-xs"
-              target="_blank"
-              rel="noopener noreferrer"
+          <div className="nav-end">
+            <a className="nav-cv" href={PORTFOLIO.resume} target="_blank" rel="noopener noreferrer">View CV <span aria-hidden="true">↗</span></a>
+            <button
+              ref={triggerRef}
+              type="button"
+              className="menu-trigger"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-controls="mobile-navigation"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((open) => !open)}
             >
-              <span>CV</span>
-              <svg
-                className="shrink-0"
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
-              </svg>
-            </a>
+              <span /><span />
+            </button>
           </div>
-
-          {/* ── Mobile menu button ── */}
-          <button
-            type="button"
-            className="lg:hidden flex flex-col gap-1.5 p-2"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-            aria-controls="mobile-navigation"
-            aria-expanded={menuOpen}
-          >
-            <span
-              className={`block h-px w-6 bg-cyber-cyan transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
-            />
-            <span
-              className={`block h-px w-6 bg-cyber-cyan transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
-            />
-            <span
-              className={`block h-px w-6 bg-cyber-cyan transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
-            />
-          </button>
         </nav>
       </header>
-
-      {/* ── Mobile menu ── */}
       <div
+        ref={menuRef}
         id="mobile-navigation"
+        className={menuOpen ? "mobile-navigation is-open" : "mobile-navigation"}
+        role="dialog"
+        aria-modal={menuOpen}
+        aria-label="Navigation menu"
         aria-hidden={!menuOpen}
         inert={!menuOpen}
-        className={`
-        fixed inset-0 z-40 bg-cyber-bg/98 backdrop-blur-xl flex flex-col items-center justify-center
-        transition-all duration-500 lg:hidden
-        ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
-      `}
       >
-        <ul className="flex flex-col items-center gap-8">
-          {NAV_LINKS.map(({ href, label }, i) => (
-            <li key={href} style={{ animationDelay: `${i * 0.06}s` }}>
-              <a
-                href={href}
-                onClick={(e) => handleNavClick(e, href)}
-                className="font-display text-2xl tracking-widest text-white hover:text-cyber-cyan transition-colors duration-300"
-              >
-                {label}
-              </a>
-            </li>
-          ))}
-          <li className="mt-4">
-            <a
-              href={PORTFOLIO.resume}
-              className="btn-neon"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View CV
-              <svg
-                className="shrink-0"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                aria-hidden="true"
-              >
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
-              </svg>
-            </a>
-          </li>
-        </ul>
+        <nav aria-label="Mobile navigation">
+          <ul>
+            {LINKS.map((link, index) => (
+              <li key={link.href}>
+                <span aria-hidden="true">0{index + 1}</span>
+                <a href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+          <a className="mobile-cv" href={PORTFOLIO.resume} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>Download CV ↗</a>
+        </nav>
       </div>
     </>
   );

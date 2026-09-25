@@ -9,18 +9,16 @@ export default function Footer() {
         {/* Brand */}
         <div className="flex items-center gap-2">
           <span className="font-display text-cyber-cyan text-glow-cyan font-bold">
-            &lt;NH/&gt;
+            NH
           </span>
           <span className="font-mono text-xs text-cyber-muted">
             {PORTFOLIO.name}
           </span>
         </div>
 
-        {/* Credit */}
+        {/* Closing line */}
         <p className="font-mono text-xs text-cyber-muted text-center">
-          © {year} {PORTFOLIO.name} · Built with{" "}
-          <span className="text-cyber-cyan">Next.js</span> &{" "}
-          <span className="text-cyber-cyan">Tailwind CSS</span>
+          © {year} {PORTFOLIO.name} · Software engineer · Cape Town
         </p>
 
         {/* Back to top */}

@@ -134,7 +134,7 @@ export default function OpenSourceSection() {
         <div
           className={`mb-16 transition-all duration-700 ${headerInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
         >
-          <p className="section-label mb-3">02 / Open Source Contributions</p>
+          <p className="section-label mb-3">03 / Open Source Contributions</p>
           <div className="flex flex-col sm:flex-row sm:items-end gap-4 justify-between">
             <h2 className="section-title">
               Code that earned its way{" "}

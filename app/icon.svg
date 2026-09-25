@@ -5,15 +5,15 @@
   shape-rendering="geometricPrecision"
 >
   <title>Nyasha Hama — NH monogram</title>
-  <rect width="64" height="64" rx="14" fill="#020812" />
+  <rect width="64" height="64" rx="10" fill="#0a1318" />
   <rect
     x="2"
     y="2"
     width="60"
     height="60"
-    rx="12"
+    rx="8"
     fill="none"
-    stroke="#0d2240"
+    stroke="#385059"
     stroke-width="2"
   />
   <g
@@ -22,8 +22,7 @@
     stroke-linecap="square"
     stroke-linejoin="round"
   >
-    <path d="M12 44V20L27 44V20" stroke="#f4fbff" stroke-width="5" />
-    <path d="M32 45L36 19" stroke="#ff00aa" stroke-width="3" />
-    <path d="M42 20V44M54 20V44M42 32H54" stroke="#00f5ff" stroke-width="5" />
+    <path d="M10 44V20L28 44V20" stroke="#f4fbff" stroke-width="5" />
+    <path d="M38 20V44M54 20V44M38 32H54" stroke="#b8ebe7" stroke-width="5" />
   </g>
 </svg>

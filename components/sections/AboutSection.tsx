@@ -42,10 +42,6 @@ export default function AboutSection() {
                 {paragraph}
               </p>
             ))}
-            <p className="border-l-2 border-cyber-cyan pl-5 font-mono text-sm leading-relaxed text-cyber-muted">
-              I care about the full path: how a product feels, how its data moves,
-              how failures recover, and how confidently the team can ship it.
-            </p>
           </div>
         </div>
 

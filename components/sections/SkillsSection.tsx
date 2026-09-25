@@ -44,11 +44,9 @@ export default function SkillsSection() {
           }`}
         >
           <p className="section-label mb-3">04 / Engineering Toolkit</p>
-          <h2 className="section-title">
-            Breadth with a clear <span className="text-cyber-cyan text-glow-cyan">centre of gravity</span>
-          </h2>
+          <h2 className="section-title">Tools behind <span className="text-cyber-cyan text-glow-cyan">the work</span></h2>
           <p className="mt-4 max-w-3xl text-cyber-muted">
-            Full-stack product delivery leads. Backend, platform, and systems work make that delivery stronger.
+            These tools appear in the projects above. The case studies show the decisions and failure cases they helped address.
           </p>
         </div>
 
