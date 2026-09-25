@@ -91,8 +91,8 @@ export default function ContactSection() {
             <span className="text-cyber-cyan text-glow-cyan">Connect</span>
           </h2>
           <p className="text-cyber-muted mt-4 max-w-xl">
-            Hiring for a full-stack role, planning a product, or looking for an
-            engineer who can work from interface to infrastructure? Let&apos;s talk.
+            Building a product or engineering team that needs careful work across
+            interface, data, and failure paths? I&apos;d like to hear what you&apos;re solving.
           </p>
         </div>
 

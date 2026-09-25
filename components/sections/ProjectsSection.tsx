@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SystemsTraceVisual from "@/components/SystemsTraceVisual";
 import { PORTFOLIO, type Project } from "@/lib/data";
 
 function ProjectVisual({ project }: { project: Project }) {
@@ -40,12 +41,12 @@ function ProjectVisual({ project }: { project: Project }) {
   );
 }
 
-function ProjectFeature({ project, index }: { project: Project; index: number }) {
+function ProjectFeature({ project }: { project: Project }) {
   return (
-    <article className={index === 1 ? "project-feature is-reversed" : "project-feature"}>
+    <article className={project.slug === "stratahq" ? "project-feature is-reversed" : "project-feature"}>
       <div className="project-art"><ProjectVisual project={project} /></div>
       <div className="project-story">
-        <div className="project-story-top"><span>0{index + 1} / FEATURED PROJECT</span><span>{project.status.toUpperCase()}</span></div>
+        <div className="project-story-top"><span>{project.id} / FEATURED PRODUCT</span><span>{project.status.toUpperCase()}</span></div>
         <h3>{project.name}</h3>
         <p className="project-tagline">{project.tagline}</p>
         <p className="project-description">{project.description}</p>
@@ -63,27 +64,49 @@ function ProjectFeature({ project, index }: { project: Project; index: number })
   );
 }
 
+function SystemsFeature({ project }: { project: Project }) {
+  return (
+    <article className="systems-feature" aria-labelledby="systems-project-title">
+      <SystemsTraceVisual />
+      <div className="project-story systems-story">
+        <div className="project-story-top"><span>{project.id} / SYSTEMS PROJECT</span><span>{project.status.toUpperCase()}</span></div>
+        <h3 id="systems-project-title">{project.name}</h3>
+        <p className="project-tagline">{project.tagline}</p>
+        <p className="project-description">{project.description}</p>
+        <ul className="project-points">{project.highlights.map((item) => <li key={item}>{item}</li>)}</ul>
+        <div className="project-tech">{project.tech.map((item) => <span key={item}>{item}</span>)}</div>
+        <div className="project-actions">
+          <a className="action-primary" href={"/work/" + project.slug}>Inspect the case <span aria-hidden="true">↗</span></a>
+          <a className="action-text" href={project.github} target="_blank" rel="noopener noreferrer">Source ↗</a>
+        </div>
+      </div>
+    </article>
+  );
+}
+
 export default function ProjectsSection() {
-  const [clinicPulse, strataHQ, searchBackend] = PORTFOLIO.projects;
+  const products = PORTFOLIO.projects.filter((project) => project.featured && project.slug !== "tx-proof");
+  const txProof = PORTFOLIO.projects.find((project) => project.slug === "tx-proof");
+  const searchBackend = PORTFOLIO.projects.find((project) => project.slug === "ecommerce-search-backend");
   return (
     <section id="projects" className="work-section" aria-labelledby="projects-title">
       <div className="section-intro">
         <p className="eyebrow">01 / SELECTED WORK</p>
         <div className="section-intro-row">
           <h2 id="projects-title">Work that<br /><em>goes deeper.</em></h2>
-          <p>Interfaces, systems and the decisions that connect them. Three projects selected for depth and verifiable engineering evidence.</p>
+          <p>Two operational products, one bounded failure-testing system, and the engineering decisions you can inspect behind them.</p>
         </div>
       </div>
-      <ProjectFeature project={clinicPulse} index={0} />
-      <ProjectFeature project={strataHQ} index={1} />
-      <article className="research-project">
+      {products.map((project) => <ProjectFeature key={project.slug} project={project} />)}
+      {txProof && <SystemsFeature project={txProof} />}
+      {searchBackend && <article className="research-project additional-project">
         <div className="research-visual" aria-hidden="true">
           <div className="research-lines"><i /><i /><i /><i /></div>
           <div className="research-core"><span>SEARCH</span><strong>4</strong><small>COMPARABLE PATHS</small></div>
           <div className="research-orbits"><span>SQL LIKE</span><span>FULL TEXT</span><span>IN MEMORY</span><span>OPENSEARCH</span></div>
         </div>
         <div className="research-story">
-          <p className="eyebrow">03 / ENGINEERING STUDY · {searchBackend.status.toUpperCase()}</p>
+          <p className="eyebrow">{searchBackend.id} / ADDITIONAL BACKEND WORK · {searchBackend.status.toUpperCase()}</p>
           <h3>{searchBackend.name}</h3>
           <p>{searchBackend.description}</p>
           <div className="project-tech">{searchBackend.tech.map((item) => <span key={item}>{item}</span>)}</div>
@@ -92,7 +115,7 @@ export default function ProjectsSection() {
             <a className="action-text" href={searchBackend.github} target="_blank" rel="noopener noreferrer">Source ↗</a>
           </div>
         </div>
-      </article>
+      </article>}
     </section>
   );
 }

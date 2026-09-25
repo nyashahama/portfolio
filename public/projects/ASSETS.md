@@ -2,6 +2,7 @@
 
 - `clinicpulse-concept.png`: original concept illustration generated for this portfolio with the built-in ImageGen tool on 25 September 2026. It shows a fictional worker and is labelled as concept artwork everywhere it appears. The HTML/CSS workflow overlay is also illustrative. No ClinicPulse user interface or actual person is represented by this image.
 - `stratahq-dashboard.png`: copied from Nyasha Hama's public [`StrataHQ/docs/assets/screenshots/agent-portfolio-dashboard.png`](https://github.com/nyashahama/StrataHQ/blob/main/docs/assets/screenshots/agent-portfolio-dashboard.png). This is a real capture of the project's agent workspace.
+- `clinicpulse-field-report-mobile.png` and `clinicpulse-district-console.png`: copied from the local ClinicPulse `public/showcase/screenshots/` outputs generated with its seeded `npm run capture:showcase` workflow. The source files were last modified in May 2026. They are historical local demonstration captures and may differ from the current public demo. The source repository intentionally ignores these generated screenshots. The field capture has SHA-256 `f4c61566b16708db2da45b811d3bf9063b40cde334a28d77c640512840fd966b`; the district capture has SHA-256 `77a0352f9d26bc9fbaaec47147bff1bb2ad345bf5ee47607e833fc705898d5e4`.
 
 ImageGen prompt used for the ClinicPulse artwork:
 

@@ -70,7 +70,7 @@ export default function ExperienceSection() {
 
           <div className="p-6 sm:p-8 lg:p-10">
             <p className="font-mono text-xs uppercase tracking-[0.24em] text-cyber-muted">
-              Selected impact
+              Selected engineering work
             </p>
             <ol className="mt-2 divide-y divide-cyber-border">
               {experience.highlights.map((highlight, index) => (
@@ -86,6 +86,10 @@ export default function ExperienceSection() {
             </ol>
           </div>
         </article>
+        <div className="mt-8 border-l-2 border-cyber-cyan pl-5">
+          <p className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-cyber-cyan">Current confidential work</p>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-cyber-muted">{PORTFOLIO.confidentialWork}</p>
+        </div>
       </div>
     </section>
   );

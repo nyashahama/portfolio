@@ -4,9 +4,10 @@ import { getProjectBySlug, PORTFOLIO } from "../lib/data.ts";
 
 test("every selected project has a distinct shareable route", () => {
   const slugs = PORTFOLIO.projects.map((project) => project.slug);
-  assert.equal(new Set(slugs).size, 3);
+  assert.equal(new Set(slugs).size, 4);
   assert.ok(slugs.every((slug) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)));
   assert.equal(getProjectBySlug("stratahq")?.name, "StrataHQ");
+  assert.equal(getProjectBySlug("tx-proof")?.name, "TxProof");
   assert.equal(getProjectBySlug("missing"), undefined);
 });
 

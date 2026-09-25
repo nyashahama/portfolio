@@ -18,17 +18,17 @@ const useInView = read("lib/useInView.ts");
 const globalStyles = read("app/globals.css");
 const favicon = read("app/icon.svg");
 
-test("leads with the finalized full-stack positioning", () => {
+test("leads with the evidence-led software engineer positioning", () => {
   assert.match(
     data,
-    /Full-Stack Software Engineer \| React, Next\.js, TypeScript & Go \| Product & Platform Engineering/,
+    /Software Engineer \| Product and Backend Systems/,
   );
   assert.match(hero, /PORTFOLIO\.role/);
   assert.doesNotMatch(
     hero,
     /Backend & Platform Engineer|Go \/ Rust Builder|Typewriter/,
   );
-  assert.match(metadata, /Full-Stack Software Engineer/);
+  assert.match(metadata, /Software Engineer/);
 });
 
 test("leads from the visual introduction into the product evidence", () => {
@@ -47,7 +47,7 @@ test("leads from the visual introduction into the product evidence", () => {
   assert.doesNotMatch(page, /BlogSection/);
 });
 
-test("keeps only the three evidence-backed CV projects", () => {
+test("keeps the selected product, systems, and Java project routes", () => {
   const projects = data.slice(
     data.indexOf("projects:"),
     data.indexOf("skills:"),
@@ -56,6 +56,7 @@ test("keeps only the three evidence-backed CV projects", () => {
   for (const name of [
     "ClinicPulse",
     "StrataHQ",
+    "TxProof",
     "E-Commerce Search Backend",
   ]) {
     assert.match(projects, new RegExp(`name: "${name}"`));
@@ -70,19 +71,19 @@ test("keeps only the three evidence-backed CV projects", () => {
     assert.doesNotMatch(projects, new RegExp(removed));
   }
 
-  assert.equal((projects.match(/\n\s+name: /g) ?? []).length, 3);
+  assert.equal((projects.match(/\n\s+name: /g) ?? []).length, 4);
 });
 
 test("uses the CV skill taxonomy without invented proficiency scores", () => {
   assert.match(
     data,
-    /TypeScript, Go, Java, SQL, JavaScript, Rust, C#, C\+\+/,
+    /TypeScript, Go, Rust, SQL, Java, C#, C\+\+/,
   );
   for (const category of [
     "Languages",
-    "Frontend & Product",
-    "Backend & Data",
-    "Platform & Quality",
+    "Product & Interface",
+    "Backend & Systems",
+    "Delivery & Verification",
   ]) {
     assert.match(data, new RegExp(`name: "${category}"`));
   }
@@ -98,7 +99,7 @@ test("publishes the finalized CV artifact", () => {
 
   assert.equal(
     digest,
-    "02e66679cc53939aa2b9fbb0d2c0d87d32e6fd51080d3cf3692cc028b36224af",
+    "13cb4c5d916d87720fefc18e98c0b9f2ecc10ddfbcc8786e71c10685d914d3f7",
   );
   assert.match(data, /resume: "\/nyasha_hama_cv\.pdf"/);
 });
@@ -108,7 +109,7 @@ test("removes unsupported promises and documents the real site", () => {
     contact,
     /respond within 24 hours|get back to you within 24 hours/i,
   );
-  assert.match(readme, /Full-Stack Software Engineer/);
+  assert.match(readme, /software engineer/i);
   assert.doesNotMatch(readme, /bootstrapped with.*create-next-app/i);
 });
 

@@ -4,12 +4,12 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.nyashahama.xyz"),
   alternates: { canonical: "/" },
-  title: "Nyasha Hama | Full-Stack Software Engineer",
+  title: "Nyasha Hama | Software Engineer — Product & Backend Systems",
   description:
-    "Full-stack software engineer building responsive React and Next.js products, Go services, PostgreSQL systems, and reliable delivery pipelines.",
+    "Software engineer building operational products and reliable backend systems, from offline reporting and payment review to bounded failure testing.",
   keywords: [
     "Nyasha Hama",
-    "Full-Stack Software Engineer",
+    "Software Engineer",
     "React",
     "Next.js",
     "TypeScript",
@@ -17,9 +17,9 @@ export const metadata: Metadata = {
     "Cape Town",
   ],
   openGraph: {
-    title: "Nyasha Hama | Full-Stack Software Engineer",
+    title: "Nyasha Hama | Software Engineer — Product & Backend Systems",
     description:
-      "Product and platform engineering across React, Next.js, TypeScript, Go, PostgreSQL, CI, and observability.",
+      "Operational products, backend systems, and inspectable correctness work across ClinicPulse, StrataHQ, TxProof, Turso, and CrossHair.",
     url: "/",
     siteName: "Nyasha Hama",
     type: "website",

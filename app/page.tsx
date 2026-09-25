@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
@@ -16,6 +17,13 @@ export default function Home() {
       <SceneBoundary />
       <Navbar />
       <HeroSection />
+      <section className="evidence-rail" aria-label="Start with the evidence">
+        <p>SELECTED EVIDENCE <span aria-hidden="true">↘</span></p>
+        <Link href="/work/clinicpulse"><small>01 / PRODUCT</small><strong>Offline reporting</strong></Link>
+        <Link href="/work/stratahq"><small>02 / PRODUCT</small><strong>Payment review</strong></Link>
+        <Link href="/work/tx-proof"><small>03 / SYSTEMS</small><strong>Replayable failures</strong></Link>
+        <a href="#open-source"><small>04 / UPSTREAM</small><strong>Maintainer-merged code</strong></a>
+      </section>
       <AboutSection />
       <section className="scene-interlude" aria-labelledby="interlude-title">
         <div className="interlude-copy">
