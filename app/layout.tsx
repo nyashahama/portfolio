@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-topaz-one-58.vercel.app"),
+  metadataBase: new URL("https://www.nyashahama.xyz"),
+  alternates: { canonical: "/" },
   title: "Nyasha Hama | Full-Stack Software Engineer",
   description:
     "Full-stack software engineer building responsive React and Next.js products, Go services, PostgreSQL systems, and reliable delivery pipelines.",
@@ -22,6 +23,7 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "Nyasha Hama",
     type: "website",
+    images: ["/opengraph-image"],
   },
   icons: {
     icon: "/icon.svg",

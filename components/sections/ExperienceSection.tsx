@@ -23,7 +23,7 @@ export default function ExperienceSection() {
             inView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
         >
-          <p className="section-label mb-3">01 / Experience</p>
+          <p className="section-label mb-3">02 / Experience</p>
           <h2 className="section-title">
             Building across the <span className="text-cyber-cyan text-glow-cyan">whole stack</span>
           </h2>

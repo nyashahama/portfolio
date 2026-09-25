@@ -102,7 +102,7 @@ export default function ContactSection() {
             className={`transition-all duration-700 delay-100 ${inView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12"}`}
           >
             {formState === "success" ? (
-              <div className="card-cyber p-10 border-cyber-green/40 bg-cyber-green/5 text-center space-y-4">
+              <div role="status" aria-live="polite" className="card-cyber p-10 border-cyber-green/40 bg-cyber-green/5 text-center space-y-4">
                 <div className="text-4xl">✓</div>
                 <p className="font-display text-cyber-green text-glow-green text-xl tracking-wide">
                   Message Sent!
@@ -118,7 +118,7 @@ export default function ContactSection() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} aria-busy={formState === "sending"} className="space-y-6">
                 {/* Name */}
                 <div className="space-y-2">
                   <label
@@ -185,11 +185,9 @@ export default function ContactSection() {
                   />
                 </div>
 
-                {formState === "error" && (
-                  <p className="font-mono text-xs text-red-400 border border-red-400/30 bg-red-400/5 px-4 py-3">
-                    Something went wrong. Please try again or email me directly.
-                  </p>
-                )}
+                <p role="status" aria-live="polite" className="font-mono text-xs text-red-400">
+                  {formState === "error" ? "Something went wrong. Please try again or email me directly." : ""}
+                </p>
 
                 <button
                   type="submit"

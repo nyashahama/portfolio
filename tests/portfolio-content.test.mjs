@@ -31,16 +31,19 @@ test("leads with the finalized full-stack positioning", () => {
   assert.match(metadata, /Full-Stack Software Engineer/);
 });
 
-test("orders the evidence like the CV and removes placeholder notes", () => {
+test("leads from the visual introduction into the product evidence", () => {
+  const hero = page.indexOf("<HeroSection");
+  const projects = page.indexOf("<ProjectsSection");
   const experience = page.indexOf("<ExperienceSection");
   const openSource = page.indexOf("<OpenSourceSection");
-  const projects = page.indexOf("<ProjectsSection");
   const education = page.indexOf("<EducationSection");
 
+  assert.ok(hero >= 0, "Hero section is rendered");
+  assert.ok(hero < projects, "Hero precedes projects");
   assert.ok(experience >= 0, "Experience section is rendered");
+  assert.ok(projects < experience, "Featured work precedes experience");
   assert.ok(experience < openSource, "Experience precedes open source");
-  assert.ok(openSource < projects, "Open source precedes projects");
-  assert.ok(projects < education, "Projects precede education");
+  assert.ok(openSource < education, "Open source precedes education");
   assert.doesNotMatch(page, /BlogSection/);
 });
 
@@ -138,7 +141,7 @@ test("uses a compact, accessible NH monogram for the favicon", () => {
   assert.match(favicon, /<title>Nyasha Hama — NH monogram<\/title>/);
   assert.match(favicon, /data-mark="nh"/);
   assert.match(favicon, /stroke="#f4fbff"/);
-  assert.match(favicon, /stroke="#00f5ff"/);
-  assert.match(favicon, /stroke="#ff00aa"/);
+  assert.match(favicon, /stroke="#b8ebe7"/);
+  assert.doesNotMatch(favicon, /#ff00aa|#00f5ff/);
   assert.doesNotMatch(favicon, /<text\b/);
 });

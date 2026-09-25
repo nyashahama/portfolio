@@ -8,7 +8,7 @@ export const PORTFOLIO = {
     "I build operational products end to end—from responsive interfaces and reusable design systems to Go services, PostgreSQL data models, background jobs, CI, and observability.",
   location: "Cape Town, South Africa",
   email: "nyashaahama@gmail.com",
-  website: "https://portfolio-topaz-one-58.vercel.app",
+  website: "https://www.nyashahama.xyz",
   github: "https://github.com/nyashahama",
   linkedin: "https://www.linkedin.com/in/nyasha-hama-5b1312229",
   resume: "/nyasha_hama_cv.pdf",
@@ -117,6 +117,7 @@ export const PORTFOLIO = {
   projects: [
     {
       id: "01",
+      slug: "clinicpulse",
       name: "ClinicPulse",
       status: "Alpha",
       tagline: "Clinic operations across public, field, district, and admin workflows",
@@ -134,6 +135,7 @@ export const PORTFOLIO = {
     },
     {
       id: "02",
+      slug: "stratahq",
       name: "StrataHQ",
       status: "Beta",
       tagline: "Property operations for agents, trustees, and residents",
@@ -151,6 +153,7 @@ export const PORTFOLIO = {
     },
     {
       id: "03",
+      slug: "ecommerce-search-backend",
       name: "E-Commerce Search Backend",
       status: "Java 21",
       tagline: "Comparable search paths with operational controls",
@@ -244,6 +247,8 @@ export const PORTFOLIO = {
 };
 
 export type Project = (typeof PORTFOLIO.projects)[number];
+export const getProjectBySlug = (slug: string): Project | undefined =>
+  PORTFOLIO.projects.find((project) => project.slug === slug);
 export type Experience = (typeof PORTFOLIO.experience)[number];
 export type SkillCat = (typeof PORTFOLIO.skills.categories)[number];
 export type OpenSourceContribution = (typeof PORTFOLIO.openSource)[number];
