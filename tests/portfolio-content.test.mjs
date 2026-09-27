@@ -99,7 +99,7 @@ test("publishes the finalized CV artifact", () => {
 
   assert.equal(
     digest,
-    "13cb4c5d916d87720fefc18e98c0b9f2ecc10ddfbcc8786e71c10685d914d3f7",
+    "391f56a2b3ada5db8649906fcfabeccea36b60222c4ad6a22cb5e2919c967d0a",
   );
   assert.match(data, /resume: "\/nyasha_hama_cv\.pdf"/);
 });
